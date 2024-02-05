@@ -1,3 +1,4 @@
+'use client'
 import {
   Table,
   TableBody,
@@ -11,8 +12,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function page() {
   return (
-    <div>
-      <Tabs defaultValue="upcoming" className="w-[400px]">
+    <main>
+      <div className="w-96 h-96"></div>
+      <Tabs defaultValue="upcoming" className="w-[400px] z-50">
         <TabsList>
           <TabsTrigger value="upcoming">Upcoming services</TabsTrigger>
           <TabsTrigger value="past">Past services</TabsTrigger>
@@ -60,6 +62,6 @@ export default function page() {
           </Table>
         </TabsContent>
       </Tabs>
-    </div>
+    </main>
   )
 }
