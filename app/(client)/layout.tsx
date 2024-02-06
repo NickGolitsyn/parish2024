@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 // import { Navbar } from "@/components/navbar";
 
 const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Parish",
@@ -18,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body className={inter.className}>
+      <body className={playfair.className}>
         <Navbar />
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -45,6 +47,7 @@ export default function RootLayout({
           />
         </div>
         {children}
+        <Footer />
       </body>
     </html>
   );

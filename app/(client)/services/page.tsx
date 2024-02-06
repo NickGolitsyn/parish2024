@@ -12,30 +12,29 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function page() {
   return (
-    <main>
-      <div className="w-96 h-96"></div>
-      <Tabs defaultValue="upcoming" className="w-[400px] z-50">
-        <TabsList>
+    <main className="p-24">
+      <Tabs defaultValue="upcoming" className="flex flex-col">
+        <TabsList className="w-fit mx-auto">
           <TabsTrigger value="upcoming">Upcoming services</TabsTrigger>
           <TabsTrigger value="past">Past services</TabsTrigger>
         </TabsList>
         <TabsContent value="upcoming">
-          <Table>
+          <Table className="">
             <TableCaption>A list of upcoming services</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">Invoice</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Method</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
+                <TableHead className="w-[100px]">Date</TableHead>
+                <TableHead className="text-nowrap">Fasting code</TableHead>
+                <TableHead>Description</TableHead>
+                <TableHead className="w-[100px]">Bible reading</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               <TableRow>
-                <TableCell className="font-medium">INV001</TableCell>
-                <TableCell>Paid</TableCell>
-                <TableCell>Credit Card</TableCell>
-                <TableCell className="text-right">$20.00</TableCell>
+                <TableCell className="font-medium">05/05/2024</TableCell>
+                <TableCell>f2</TableCell>
+                <TableCell>Easter Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce imperdiet lectus ac massa rhoncus, eleifend laoreet risus interdum. Sed ac urna sit amet mi accumsan malesuada nec nec nibh. Mauris quis felis a ligula sollicitudin porttitor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</TableCell>
+                <TableCell>Eph. 6:10-17; Matt. 4:1-11</TableCell>
               </TableRow>
             </TableBody>
           </Table>

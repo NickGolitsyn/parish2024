@@ -6,11 +6,40 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import Link from "next/link";
+import { groq } from "next-sanity";
+import { client } from "@/sanity/lib/client";
+import { FoodItems } from "@/typings";
+import { urlForImage } from "@/sanity/lib/image";
 
-export default function Home() {
+const query = groq`
+*[_type == 'foodItems']
+`;
+export const revalidate = 60;
+
+export default async function Home() {
+  const foodItems: FoodItems[] = await client.fetch(query);
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+    <main className="flex min-h-screen flex-col items-center justify-between p-24 mx-auto max-w-2xl">
+      <div className="text-center py-10">
+        <h1 className="font-semibold text-xl">
+          <i>Welcome to</i><br/>the Romanian parish of<br/>Holy Martyr Philothea & Saint Bede the Venerable
+        </h1>
+        <h2 className="font-semibold pt-5">An Orthodox parish serving<br/>Norwich & East Anglia</h2>
+      </div>
+      <div className="max-w-5xl w-full items-center justify-between text-sm lg:flex">
+        <div>
+          {foodItems.map((item: FoodItems) => (
+            <div key={item.name}>
+              <h1>{item.name}</h1>
+              <p>{item.rating}</p>
+              {item.tags.map((tag) => (
+                <p>{tag}</p>
+              ))}
+              <img src={urlForImage(item?.image)} alt={item.name} />
+            </div>
+          ))}
+        </div>
         <Carousel>
           <CarouselContent>
             <CarouselItem>
@@ -40,19 +69,8 @@ export default function Home() {
       <div className="mx-auto max-w-2xl py-4 sm:py-10 lg:py-14">
         <div className="text-center">
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            On this website you can find out about us, where we worship, when our services are, how to contact us and how to support us.
+            On this website you can find out <Link className="underline text-indigo-600" href='/about'>about us</Link>, <Link className="underline text-indigo-600" href='/'>where</Link> we worship, <Link className="underline text-indigo-600" href='/services'>when</Link> our services are, how to <Link className="underline text-indigo-600" href='/contact'>contact</Link> us and how to <Link className="underline text-indigo-600" href='/donate'>support</Link> us.
           </p>
-          <div className="mt-10 flex items-center justify-center gap-x-6">
-            <a
-              href="#"
-              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              Get started
-            </a>
-            <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-              Learn more <span aria-hidden="true">→</span>
-            </a>
-          </div>
         </div>
       </div>
     </main>
