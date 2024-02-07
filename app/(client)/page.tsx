@@ -34,7 +34,7 @@ export default async function Home() {
               <h1>{item.name}</h1>
               <p>{item.rating}</p>
               {item.tags.map((tag) => (
-                <p>{tag}</p>
+                <p key={tag}>{tag}</p>
               ))}
               <img src={urlForImage(item?.image)} alt={item.name} />
             </div>
