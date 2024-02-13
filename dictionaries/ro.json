@@ -29,6 +29,9 @@
       "bibleReading": "Citirea Bibliei",
       "upcomingTableDesc": "O listă de servicii viitoare",
       "pastTableDesc": "O listă cu serviciile anterioare"
+    },
+    "donate": {
+      "title": "Donează"
     }
   }
 }

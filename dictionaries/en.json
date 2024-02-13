@@ -29,6 +29,9 @@
       "bibleReading": "Bible reading",
       "upcomingTableDesc": "A list of upcoming services",
       "pastTableDesc": "A list of past services"
+    },
+    "donate": {
+      "title": "Donate"
     }
   }
 }

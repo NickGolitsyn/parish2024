@@ -35,7 +35,7 @@ export default async function page({
           <TabsTrigger value="past">{page.services.past}</TabsTrigger>
         </TabsList>
         <TabsContent value="upcoming">
-          <Table className="">
+          <Table>
             <TableCaption>{page.services.upcomingTableDesc}</TableCaption>
             <TableHeader>
               <TableRow>
@@ -62,19 +62,21 @@ export default async function page({
             <TableCaption>{page.services.pastTableDesc}</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">Invoice</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Method</TableHead>
-                <TableHead className="text-right">Amount</TableHead>
+                <TableHead className="w-[100px]">{page.services.date}</TableHead>
+                <TableHead className="text-nowrap w-10">{page.services.fastingCode}</TableHead>
+                <TableHead>{page.services.description}</TableHead>
+                <TableHead className="text-nowrap w-[100px]">{page.services.bibleReading}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow>
-                <TableCell className="font-medium">INV001</TableCell>
-                <TableCell>Paid</TableCell>
-                <TableCell>Credit Card</TableCell>
-                <TableCell className="text-right">$250.00</TableCell>
-              </TableRow>
+              {services.map((item: Services) => ( 
+                <TableRow key={item._id}>
+                  <TableCell className="font-medium">{item.date}</TableCell>
+                  <TableCell>{item.fastingCode}</TableCell>
+                  <TableCell>{item.description[lang]}</TableCell>
+                  <TableCell>{item.bibleReadings[lang]}</TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </TabsContent>
