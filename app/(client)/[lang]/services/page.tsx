@@ -9,42 +9,40 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Locale } from "@/i18n.config";
+import { getDictionary } from "@/lib/dictionary";
 import { client } from "@/sanity/lib/client";
 import { Services } from "@/typings";
 import { groq } from "next-sanity";
-
 
 const query = groq`
 *[_type == 'services']
 `;
 export const revalidate = 60;
 
-export default async function page() {
+export default async function page({
+  params: { lang }
+}: {
+  params: { lang: Locale }
+}) {
+  const { page } = await getDictionary(lang)
   const services: Services[] = await client.fetch(query);
   return (
     <main className="p-24">
-      {/* <div>
-        {services.map((item: Services) => (
-          <div key={item._id}>
-            <h1>{item.fastingCode}</h1>
-            <p>{item.description.en}</p>
-          </div>
-        ))}
-      </div> */}
       <Tabs defaultValue="upcoming" className="flex flex-col">
         <TabsList className="w-fit mx-auto">
-          <TabsTrigger value="upcoming">Upcoming services</TabsTrigger>
-          <TabsTrigger value="past">Past services</TabsTrigger>
+          <TabsTrigger value="upcoming">{page.services.upcoming}</TabsTrigger>
+          <TabsTrigger value="past">{page.services.past}</TabsTrigger>
         </TabsList>
         <TabsContent value="upcoming">
           <Table className="">
-            <TableCaption>A list of upcoming services</TableCaption>
+            <TableCaption>{page.services.upcomingTableDesc}</TableCaption>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">Date</TableHead>
-                <TableHead className="text-nowrap">Fasting code</TableHead>
-                <TableHead>Description</TableHead>
-                <TableHead className="w-[100px]">Bible reading</TableHead>
+                <TableHead className="w-[100px]">{page.services.date}</TableHead>
+                <TableHead className="text-nowrap w-10">{page.services.fastingCode}</TableHead>
+                <TableHead>{page.services.description}</TableHead>
+                <TableHead className="text-nowrap w-[100px]">{page.services.bibleReading}</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -52,8 +50,8 @@ export default async function page() {
                 <TableRow key={item._id}>
                   <TableCell className="font-medium">{item.date}</TableCell>
                   <TableCell>{item.fastingCode}</TableCell>
-                  <TableCell>{item.description.en}</TableCell>
-                  <TableCell>{item.bibleReadings.en}</TableCell>
+                  <TableCell>{item.description[lang]}</TableCell>
+                  <TableCell>{item.bibleReadings[lang]}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -61,7 +59,7 @@ export default async function page() {
         </TabsContent>
         <TabsContent value="past">
           <Table>
-            <TableCaption>A list of past services</TableCaption>
+            <TableCaption>{page.services.pastTableDesc}</TableCaption>
             <TableHeader>
               <TableRow>
                 <TableHead className="w-[100px]">Invoice</TableHead>

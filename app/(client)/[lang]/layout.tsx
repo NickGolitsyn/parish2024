@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
-import "../globals.css";
+import '@/app/globals.css'
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-// import { Navbar } from "@/components/navbar";
+import { Locale, i18n } from "@/i18n.config";
 
 const inter = Inter({ subsets: ["latin"] });
 const playfair = Playfair_Display({ subsets: ["latin"] });
@@ -13,15 +13,21 @@ export const metadata: Metadata = {
   description: "Parish website",
 };
 
+export async function generateStaticParams() {
+  return i18n.locales.map(locale => ({ lang: locale }))
+}
+
 export default function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: Locale };
 }>) {
   return (
-    <html>
-      <body className={playfair.className}>
-        <Navbar />
+    <html lang={params.lang}>
+      <body className={`${playfair.className}`}>
+        <Navbar lang={params.lang} />
         <div
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
           aria-hidden="true"
@@ -47,7 +53,7 @@ export default function RootLayout({
           />
         </div>
         {children}
-        <Footer />
+        <Footer lang={params.lang} />
       </body>
     </html>
   );

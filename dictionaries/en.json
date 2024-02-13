@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "services": "Services",
+    "gallery": "Gallery",
+    "donate": "Donate"
+  },
+  "footer": {
+    "title": "Parish of the Holy Martyr Philothea & Saint Bede the Venerable serving at:<br/>St Mary&apos;s Church, Church Road, Gillingham, Beccles NR34 0ND, United Kingdom."
+  },
+  "page": {
+    "home": {
+      "title": "<i>Welcome to</i><br/>the Romanian parish of<br/>Holy Martyr Philothea & Saint Bede the Venerable",
+      "subtitle": "An Orthodox parish serving<br/>Norwich & East Anglia",
+      "description": "On this website you can find out <Link class=\"underline text-indigo-600\" href='/en/about'>about us</Link>, <Link class=\"underline text-indigo-600\" href='/en'>where</Link> we worship, <Link class=\"underline text-indigo-600\" href='/en/services'>when</Link> our services are, how to <Link class=\"underline text-indigo-600\" href='/en/contact'>contact</Link> us and how to <Link class=\"underline text-indigo-600\" href='/en/donate'>support</Link> us."
+    },
+    "about": {
+      "parish": "About Our Parish",
+      "saints": "About Our Saints"
+    },
+    "services": {
+      "upcoming": "Upcoming services",
+      "past": "Past services",
+      "date": "Date",
+      "fastingCode": "Fasting code",
+      "description": "Description",
+      "bibleReading": "Bible reading",
+      "upcomingTableDesc": "A list of upcoming services",
+      "pastTableDesc": "A list of past services"
+    }
+  }
+}

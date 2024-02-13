@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": "Acasă",
+    "about": "Despre",
+    "contact": "Contactaţi-ne",
+    "services": "Servicii",
+    "gallery": "Galerie",
+    "donate": "Donează"
+  },
+  "footer": {
+    "title": "Parohia Sfânta Muceniță Filotea și Sfântul Beda Venerabilul slujind la:<br/>Biserica Sf. Maria, Church Road, Gillingham, Beccles NR34 0ND, Regatul Unit."
+  },
+  "page": {
+    "home": {
+      "title": "Bine ați venit în parohia românească Sfânta Muceniță Filotea și Sfântul Beda Venerabilul",
+      "subtitle": "O parohie ortodoxă care servește<br/>Norwich și East Anglia",
+      "description": "Pe acest site puteți afla <Link class=\"underline text-indigo-600\" href='/ro/about'>despre noi</Link>, <Link class=\"underline text-indigo-600\" href='/ro'>unde</Link> ne închinăm, <Link class=\"underline text-indigo-600\" href='/ro/services'>când</Link> sunt serviciile noastre, cum să <Link class=\"underline text-indigo-600\" href='/ro/contact'>contactați-ne</Link> și cum să <Link class=\"underline text-indigo-600\" href='/ro/donate'>sprijină</Link>-ne."
+    },
+    "about": {
+      "parish": "Despre Parohia Noastră",
+      "saints": "Despre Sfinții Noștri"
+    },
+    "services": {
+      "upcoming": "Servicii viitoare",
+      "past": "Servicii anterioare",
+      "date": "Data",
+      "fastingCode": "Cod de post",
+      "description": "Descriere",
+      "bibleReading": "Citirea Bibliei",
+      "upcomingTableDesc": "O listă de servicii viitoare",
+      "pastTableDesc": "O listă cu serviciile anterioare"
+    }
+  }
+}

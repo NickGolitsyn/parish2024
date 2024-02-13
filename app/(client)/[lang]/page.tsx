@@ -10,21 +10,20 @@ import Link from "next/link";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
+import { Locale } from "@/i18n.config";
+import { getDictionary } from "@/lib/dictionary";
 
-// const query = groq`
-// *[_type == 'foodItems']
-// `;
-// export const revalidate = 60;
-
-export default async function Home() {
-  // const foodItems: FoodItems[] = await client.fetch(query);
+export default async function Home({
+  params: { lang }
+}: {
+  params: { lang: Locale }
+}) {
+  const { page } = await getDictionary(lang)
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 mx-auto max-w-2xl">
       <div className="text-center py-10">
-        <h1 className="font-semibold text-xl">
-          <i>Welcome to</i><br/>the Romanian parish of<br/>Holy Martyr Philothea & Saint Bede the Venerable
-        </h1>
-        <h2 className="font-semibold pt-5">An Orthodox parish serving<br/>Norwich & East Anglia</h2>
+        <h1 className="font-semibold text-xl" dangerouslySetInnerHTML={{ __html: page.home.title }} />
+        <h2 className="font-semibold pt-5" dangerouslySetInnerHTML={{ __html: page.home.subtitle }} />
       </div>
       <div className="max-w-5xl w-full items-center justify-between text-sm lg:flex">
         <Carousel>
@@ -55,9 +54,16 @@ export default async function Home() {
 
       <div className="mx-auto max-w-2xl py-4 sm:py-10 lg:py-14">
         <div className="text-center">
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          {/* <p className="mt-6 text-lg leading-8 text-gray-600" dangerouslySetInnerHTML={{ __html: page.home.description}} /> */}
+          <p
+        className="mt-6 text-lg leading-8 text-gray-600"
+        dangerouslySetInnerHTML={{
+          __html: page.home.description.replace(/<Link/g, '<a').replace(/<\/Link>/g, '</a>'),
+        }}
+      />
+          {/* <p className="mt-6 text-lg leading-8 text-gray-600">
             On this website you can find out <Link className="underline text-indigo-600" href='/about'>about us</Link>, <Link className="underline text-indigo-600" href='/'>where</Link> we worship, <Link className="underline text-indigo-600" href='/services'>when</Link> our services are, how to <Link className="underline text-indigo-600" href='/contact'>contact</Link> us and how to <Link className="underline text-indigo-600" href='/donate'>support</Link> us.
-          </p>
+          </p> */}
         </div>
       </div>
     </main>
