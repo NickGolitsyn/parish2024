@@ -9,10 +9,28 @@ import {
   TableRow,
 } from "@/components/ui/table"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { client } from "@/sanity/lib/client";
+import { Services } from "@/typings";
+import { groq } from "next-sanity";
 
-export default function page() {
+
+const query = groq`
+*[_type == 'services']
+`;
+export const revalidate = 60;
+
+export default async function page() {
+  const services: Services[] = await client.fetch(query);
   return (
     <main className="p-24">
+      {/* <div>
+        {services.map((item: Services) => (
+          <div key={item._id}>
+            <h1>{item.fastingCode}</h1>
+            <p>{item.description.en}</p>
+          </div>
+        ))}
+      </div> */}
       <Tabs defaultValue="upcoming" className="flex flex-col">
         <TabsList className="w-fit mx-auto">
           <TabsTrigger value="upcoming">Upcoming services</TabsTrigger>
@@ -30,12 +48,14 @@ export default function page() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow>
-                <TableCell className="font-medium">05/05/2024</TableCell>
-                <TableCell>f2</TableCell>
-                <TableCell>Easter Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce imperdiet lectus ac massa rhoncus, eleifend laoreet risus interdum. Sed ac urna sit amet mi accumsan malesuada nec nec nibh. Mauris quis felis a ligula sollicitudin porttitor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</TableCell>
-                <TableCell>Eph. 6:10-17; Matt. 4:1-11</TableCell>
-              </TableRow>
+              {services.map((item: Services) => ( 
+                <TableRow key={item._id}>
+                  <TableCell className="font-medium">{item.date}</TableCell>
+                  <TableCell>{item.fastingCode}</TableCell>
+                  <TableCell>{item.description.en}</TableCell>
+                  <TableCell>{item.bibleReadings.en}</TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </TabsContent>

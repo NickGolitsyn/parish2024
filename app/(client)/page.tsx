@@ -9,16 +9,15 @@ import {
 import Link from "next/link";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-import { FoodItems } from "@/typings";
 import { urlForImage } from "@/sanity/lib/image";
 
-const query = groq`
-*[_type == 'foodItems']
-`;
-export const revalidate = 60;
+// const query = groq`
+// *[_type == 'foodItems']
+// `;
+// export const revalidate = 60;
 
 export default async function Home() {
-  const foodItems: FoodItems[] = await client.fetch(query);
+  // const foodItems: FoodItems[] = await client.fetch(query);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24 mx-auto max-w-2xl">
       <div className="text-center py-10">
@@ -28,18 +27,6 @@ export default async function Home() {
         <h2 className="font-semibold pt-5">An Orthodox parish serving<br/>Norwich & East Anglia</h2>
       </div>
       <div className="max-w-5xl w-full items-center justify-between text-sm lg:flex">
-        <div>
-          {foodItems.map((item: FoodItems) => (
-            <div key={item.name}>
-              <h1>{item.name}</h1>
-              <p>{item.rating}</p>
-              {item.tags.map((tag) => (
-                <p key={tag}>{tag}</p>
-              ))}
-              <img src={urlForImage(item?.image)} alt={item.name} />
-            </div>
-          ))}
-        </div>
         <Carousel>
           <CarouselContent>
             <CarouselItem>

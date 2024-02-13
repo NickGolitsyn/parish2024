@@ -14,3 +14,11 @@ interface FoodItems extends SanityBase {
   rating: number;
   tags: string[];
 }
+
+interface Services extends SanityBase {
+  _type: "services";
+  date: date;
+  description: { en: string; ro: string };
+  bibleReadings: { en: string; ro: string };
+  fastingCode: string;
+}
