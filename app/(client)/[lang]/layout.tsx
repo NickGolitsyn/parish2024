@@ -4,6 +4,7 @@ import '@/app/globals.css'
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Locale, i18n } from "@/i18n.config";
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ["latin"] });
 const playfair = Playfair_Display({ subsets: ["latin"] });
@@ -53,6 +54,7 @@ export default function RootLayout({
           />
         </div>
         {children}
+        <Analytics />
         <Footer lang={params.lang} />
       </body>
     </html>
