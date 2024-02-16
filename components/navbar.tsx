@@ -39,7 +39,7 @@ export default function Navbar({ lang }: { lang: Locale }) {
           <a href={`/${lang}`} className="-m-1.5 p-1.5">
             <span className="sr-only">Holy Martyr Philothea & Saint Bede the Venerable Romanian Parish</span>
             <img
-              className="h-4 w-auto"
+              className="h-10 w-auto"
               src="https://parish-nextjs-sanity-g65r92i5z-nickgolitsyn.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fque4q559%2Fproduction%2Fb460bdc5012b74569b8010dc8a22c083330a5c24-1024x1013.jpg%3Fw%3D1024%26auto%3Dformat&w=256&q=75"
               alt=""
             />
@@ -70,14 +70,14 @@ export default function Navbar({ lang }: { lang: Locale }) {
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <a href={`/${lang}`} className="-m-1.5 p-1.5">
-              <span className="sr-only">Holy Martyr Philothea & Saint Bede the Venerable Romanian Parish</span>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                alt=""
-              />
-            </a>
+          <a href={`/${lang}`} className="-m-1.5 p-1.5">
+            <span className="sr-only">Holy Martyr Philothea & Saint Bede the Venerable Romanian Parish</span>
+            <img
+              className="h-10 w-auto"
+              src="https://parish-nextjs-sanity-g65r92i5z-nickgolitsyn.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fque4q559%2Fproduction%2Fb460bdc5012b74569b8010dc8a22c083330a5c24-1024x1013.jpg%3Fw%3D1024%26auto%3Dformat&w=256&q=75"
+              alt=""
+            />
+          </a>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"

@@ -20,6 +20,11 @@ function getLocale(request: NextRequest): string | undefined {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
+
+  if (pathname.startsWith('/admin')) {
+    return null; 
+  }
+
   const pathnameIsMissingLocale = i18n.locales.every(
     locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   )
