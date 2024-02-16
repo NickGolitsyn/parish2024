@@ -11,7 +11,7 @@ export default async function page({
   const mapSrc = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(location)}`;
   const { page } = await getDictionary(lang)
   return (
-    <main className="py-24 max-w-screen-md mx-auto flex flex-col items-center">
+    <main className="p-24 max-w-screen-md mx-auto flex flex-col items-center">
       <div className='flex justify-between w-full'>
         <div className='mr-3'>
           <h1 className='text-2xl font-bold mb-2'>Contact us</h1>

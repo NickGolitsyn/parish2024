@@ -39,7 +39,7 @@ export default function Navbar({ lang }: { lang: Locale }) {
           <a href={`/${lang}`} className="-m-1.5 p-1.5">
             <span className="sr-only">Holy Martyr Philothea & Saint Bede the Venerable Romanian Parish</span>
             <img
-              className="h-10 w-auto"
+              className="h-12 w-auto"
               src="https://parish-nextjs-sanity-g65r92i5z-nickgolitsyn.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fque4q559%2Fproduction%2Fb460bdc5012b74569b8010dc8a22c083330a5c24-1024x1013.jpg%3Fw%3D1024%26auto%3Dformat&w=256&q=75"
               alt=""
             />
@@ -73,7 +73,7 @@ export default function Navbar({ lang }: { lang: Locale }) {
           <a href={`/${lang}`} className="-m-1.5 p-1.5">
             <span className="sr-only">Holy Martyr Philothea & Saint Bede the Venerable Romanian Parish</span>
             <img
-              className="h-10 w-auto"
+              className="h-12 w-auto"
               src="https://parish-nextjs-sanity-g65r92i5z-nickgolitsyn.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fque4q559%2Fproduction%2Fb460bdc5012b74569b8010dc8a22c083330a5c24-1024x1013.jpg%3Fw%3D1024%26auto%3Dformat&w=256&q=75"
               alt=""
             />
