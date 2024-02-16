@@ -1,22 +1,37 @@
-"use client"
-import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { Locale } from '@/i18n.config'
-import LocaleSwitcher from './localeSwitcher'
-import { getDictionary } from '@/lib/dictionary'
+'use client'
+import { useState, useEffect } from 'react';
+import { Dialog } from '@headlessui/react';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Locale } from '@/i18n.config';
+import LocaleSwitcher from './localeSwitcher';
+import { getDictionary } from '@/lib/dictionary';
 
-export default async function Navbar({ lang }: { lang: Locale }) {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { nav } = await getDictionary(lang)
-  const navigation = [
-    { name: nav.home, href: '/' },
-    { name: nav.about, href: '/about' },
-    { name: nav.contact, href: '/contact' },
-    { name: nav.services, href: '/services' },
-    { name: nav.gallery, href: '/gallery' },
-    { name: nav.donate, href: '/donate' },
-  ]
+interface NavigationItem {
+  name: string;
+  href: string;
+}
+
+export default function Navbar({ lang }: { lang: Locale }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [navigation, setNavigation] = useState<NavigationItem[]>([]);
+
+  useEffect(() => {
+    const fetchNavigation = async () => {
+      const { nav } = await getDictionary(lang);
+      const navItems: NavigationItem[] = [
+        { name: nav.home, href: '/' },
+        { name: nav.about, href: '/about' },
+        { name: nav.contact, href: '/contact' },
+        { name: nav.services, href: '/services' },
+        { name: nav.gallery, href: '/gallery' },
+        { name: nav.donate, href: '/donate' },
+      ];
+      setNavigation(navItems);
+    };
+
+    fetchNavigation();
+  }, [lang]);
+
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
@@ -24,7 +39,7 @@ export default async function Navbar({ lang }: { lang: Locale }) {
           <a href={`/${lang}`} className="-m-1.5 p-1.5">
             <span className="sr-only">Holy Martyr Philothea & Saint Bede the Venerable Romanian Parish</span>
             <img
-              className="h-14 w-auto"
+              className="h-4 w-auto"
               src="https://parish-nextjs-sanity-g65r92i5z-nickgolitsyn.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fque4q559%2Fproduction%2Fb460bdc5012b74569b8010dc8a22c083330a5c24-1024x1013.jpg%3Fw%3D1024%26auto%3Dformat&w=256&q=75"
               alt=""
             />
@@ -48,14 +63,6 @@ export default async function Navbar({ lang }: { lang: Locale }) {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        {/* <a href={`/${lang}`} className="-m-1.5 p-1.5">
-            <span className="sr-only">Holy Martyr Philothea & Saint Bede the Venerable Romanian Parish</span>
-            <img
-              className="h-8 w-auto"
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              alt=""
-            />
-          </a> */}
           <LocaleSwitcher />
         </div>
       </nav>
@@ -98,5 +105,5 @@ export default async function Navbar({ lang }: { lang: Locale }) {
         </Dialog.Panel>
       </Dialog>
     </header>
-  )
+  );
 }
