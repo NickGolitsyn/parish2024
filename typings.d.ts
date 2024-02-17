@@ -7,12 +7,25 @@ type SanityBase = {
   _updatedAt: string;
 }
 
-interface FoodItems extends SanityBase {
-  _type: "foodItems";
-  name: string;
-  image: Image;
-  rating: number;
-  tags: string[];
+interface Home extends SanityBase {
+  _type: "home";
+  slideshow: Image[];
+  welcomeText: { en: string; ro: string };
+}
+
+interface About extends SanityBase {
+  _type: "about";
+  parish: { en: string; ro: string };
+  saints: { en: string; ro: string };
+}
+
+interface Contact extends SanityBase {
+  _type: "contact";
+  contact: { en: string; ro: string };
+  email: string;
+  tel: string;
+  visit: { en: string; ro: string };
+  address: string;
 }
 
 interface Services extends SanityBase {
@@ -21,4 +34,16 @@ interface Services extends SanityBase {
   description: { en: string; ro: string };
   bibleReadings: { en: string; ro: string };
   fastingCode: string;
+}
+
+interface Gallery extends SanityBase {
+  _type: "gallery";
+  image: Image;
+  alt: { en: string; ro: string };
+}
+
+interface Donate extends SanityBase {
+  _type: "donate";
+  donateDesc: { en: string; ro: string };
+  link: string;
 }

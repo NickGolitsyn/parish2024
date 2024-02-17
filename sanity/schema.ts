@@ -1,7 +1,11 @@
 import { type SchemaTypeDefinition } from 'sanity'
-import foodItems from './schemas/foodItems'
 import services from './schemas/services'
+import about from './schemas/about'
+import contact from './schemas/contact'
+import gallery from './schemas/gallery'
+import donate from './schemas/donate'
+import home from './schemas/home'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [foodItems, services],
+  types: [home, about, contact, services, gallery, donate],
 }
