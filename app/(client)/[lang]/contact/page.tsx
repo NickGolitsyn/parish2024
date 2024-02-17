@@ -12,27 +12,33 @@ export default async function page({
   const { page } = await getDictionary(lang)
   return (
     <main className="p-24 max-w-screen-md mx-auto flex flex-col items-center">
-      <div className='flex justify-between w-full'>
-        <div className='mr-3'>
-          <h1 className='text-2xl font-bold mb-2'>Contact us</h1>
-          <p className='max-w-md'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
+      <div className='flex flex-col items-center w-full'>
         <div>
-          <p>email: email@gmail.com</p>
-          <p>tel: +447403525139</p>
+          <h1 className='text-2xl text-center font-bold mb-2'>Contact us</h1>
+          <p className='max-w-md text-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div className='flex gap-10 mt-5'>
+          <div className='flex flex-col items-center'>
+            <p>email:</p> 
+            <p className='underline text-amber-600'>email@gmail.com</p>
+          </div>
+          <div className='flex flex-col items-center'>
+            <p>tel:</p>
+            <p className='underline text-amber-600'>+447403525139</p>
+          </div>
         </div>
       </div>
-      <div className='flex items-center mt-10 w-full justify-between'>
+      <div className='flex flex-col items-center mt-10 w-full justify-between'>
+        <div>
+          <h1 className='text-2xl font-bold mb-2 text-center'>Visit us</h1>
+          <p className='text-center max-w-md'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
         <iframe
-          className='min-h-52'
+          className='mt-10 min-h-80 w-screen'
           style={{ border: 0 }}
           referrerPolicy="no-referrer-when-downgrade"
           src={mapSrc}
         />
-        <div className='ml-3'>
-          <h1 className='text-2xl font-bold mb-2 text-right'>Visit us</h1>
-          <p className='text-right max-w-md'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
       </div>
     </main>
   )

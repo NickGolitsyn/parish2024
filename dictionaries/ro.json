@@ -14,7 +14,7 @@
     "home": {
       "title": "Bine ați venit în parohia românească Sfânta Muceniță Filotea și Sfântul Beda Venerabilul",
       "subtitle": "O parohie ortodoxă care servește<br/>Norwich și East Anglia",
-      "description": "Pe acest site puteți afla <Link class=\"underline text-indigo-600\" href='/ro/about'>despre noi</Link>, <Link class=\"underline text-indigo-600\" href='/ro'>unde</Link> ne închinăm, <Link class=\"underline text-indigo-600\" href='/ro/services'>când</Link> sunt serviciile noastre, cum să <Link class=\"underline text-indigo-600\" href='/ro/contact'>contactați-ne</Link> și cum să <Link class=\"underline text-indigo-600\" href='/ro/donate'>sprijină</Link>-ne."
+      "description": "Pe acest site puteți afla <Link class=\"underline text-amber-600\" href='/ro/about'>despre noi</Link>, <Link class=\"underline text-amber-600\" href='/ro'>unde</Link> ne închinăm, <Link class=\"underline text-amber-600\" href='/ro/services'>când</Link> sunt serviciile noastre, cum să <Link class=\"underline text-amber-600\" href='/ro/contact'>contactați-ne</Link> și cum să <Link class=\"underline text-amber-600\" href='/ro/donate'>sprijină</Link>-ne."
     },
     "about": {
       "parish": "Despre Parohia Noastră",

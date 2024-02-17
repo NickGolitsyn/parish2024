@@ -17,13 +17,12 @@ export default function LocaleSwitcher() {
   return (
     <ul className='flex gap-x-3'>
       {i18n.locales.map(locale => {
+        const isActive = pathName.startsWith(`/${locale}`)
+        const linkClassName = `rounded-md border capitalize ${isActive ? 'bg-amber-100 text-black font-semibold' : 'bg-white text-black'} px-3 py-2`
         return (
           <li key={locale}>
-            <Link
-              href={redirectedPathName(locale)}
-              className='rounded-md border bg-black px-3 py-2 text-white'
-            >
-              {locale}
+            <Link className={linkClassName} href={redirectedPathName(locale)}>
+                {locale}
             </Link>
           </li>
         )
