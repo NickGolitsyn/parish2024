@@ -36,7 +36,7 @@ export default defineType({
       type: 'string', 
     }),
     defineField({
-      name: "vitis",
+      name: "visit",
       title: "Visit us",
       validation: (Rule) => Rule.required(),
       type: 'object', 
@@ -60,4 +60,7 @@ export default defineType({
       type: 'string', 
     }),
   ],
+  options: {
+    singleInstance: true,
+  },
 });

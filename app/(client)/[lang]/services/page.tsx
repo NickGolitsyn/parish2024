@@ -18,7 +18,6 @@ import { groq } from "next-sanity";
 const query = groq`
 *[_type == 'services']
 `;
-export const revalidate = 60;
 
 export default async function page({
   params: { lang }
@@ -28,7 +27,7 @@ export default async function page({
   const { page } = await getDictionary(lang)
   const services: Services[] = await client.fetch(query);
   return (
-    <main className="p-24">
+    <main className="py-24 px-5">
       <Tabs defaultValue="upcoming" className="flex flex-col">
         <TabsList className="w-fit mx-auto">
           <TabsTrigger value="upcoming">{page.services.upcoming}</TabsTrigger>
@@ -84,3 +83,5 @@ export default async function page({
     </main>
   )
 }
+
+export const revalidate = 500;
