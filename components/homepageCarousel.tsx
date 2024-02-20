@@ -20,7 +20,7 @@ export default function HomepageCarousel({ home }: { home: Home[] }) {
         >
       <CarouselContent>
         {home[0].slideshow.map((item: any) => ( 
-          <CarouselItem>
+          <CarouselItem key={item?._key}>
             <img 
               src={urlForImage(item?.asset._ref)}
               className='w-full aspect-video object-cover'
