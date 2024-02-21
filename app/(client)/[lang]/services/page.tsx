@@ -1,4 +1,5 @@
 'use client'
+import React from 'react';
 import {
   Table,
   TableBody,
@@ -7,8 +8,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+} from "@/components/ui/table";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
 import { client } from "@/sanity/lib/client";
@@ -24,16 +25,31 @@ export default async function page({
 }: {
   params: { lang: Locale }
 }) {
-  const { page } = await getDictionary(lang)
+  const { page } = await getDictionary(lang);
   const services: Services[] = await client.fetch(query);
+
+  // Get today's date to filter upcoming and past services
+  const today = new Date();
+
+  // Filter and sort upcoming services
+  const upcomingServices = services
+    .filter((item: Services) => new Date(item.date as string) >= today)
+    .sort((a: Services, b: Services) => new Date(a.date as string).getTime() - new Date(b.date as string).getTime());
+
+  const pastServices = services
+    .filter((item: Services) => new Date(item.date as string) < today)
+    .sort((a: Services, b: Services) => new Date(b.date as string).getTime() - new Date(a.date as string).getTime());
+
+
   return (
-    <main className="py-24 px-5">
+    <main className="py-24 px-5 max-w-screen-md mx-auto">
       <Tabs defaultValue="upcoming" className="flex flex-col">
         <TabsList className="w-fit mx-auto">
           <TabsTrigger value="upcoming">{page.services.upcoming}</TabsTrigger>
           <TabsTrigger value="past">{page.services.past}</TabsTrigger>
         </TabsList>
         <TabsContent value="upcoming">
+          {/* Render upcoming services */}
           <Table>
             <TableCaption>{page.services.upcomingTableDesc}</TableCaption>
             <TableHeader>
@@ -45,7 +61,7 @@ export default async function page({
               </TableRow>
             </TableHeader>
             <TableBody>
-              {services.map((item: Services) => ( 
+              {upcomingServices.map((item: Services) => (
                 <TableRow key={item._id}>
                   <TableCell className="font-medium">{item.date}</TableCell>
                   <TableCell>{item.fastingCode}</TableCell>
@@ -57,6 +73,7 @@ export default async function page({
           </Table>
         </TabsContent>
         <TabsContent value="past">
+          {/* Render past services */}
           <Table>
             <TableCaption>{page.services.pastTableDesc}</TableCaption>
             <TableHeader>
@@ -68,7 +85,7 @@ export default async function page({
               </TableRow>
             </TableHeader>
             <TableBody>
-              {services.map((item: Services) => ( 
+              {pastServices.map((item: Services) => (
                 <TableRow key={item._id}>
                   <TableCell className="font-medium">{item.date}</TableCell>
                   <TableCell>{item.fastingCode}</TableCell>
@@ -81,7 +98,7 @@ export default async function page({
         </TabsContent>
       </Tabs>
     </main>
-  )
+  );
 }
 
 export const revalidate = 500;
