@@ -36,7 +36,7 @@ interface Services extends SanityBase {
   fastingCode: string;
 }
 
-interface Gallery extends SanityBase {
+interface SanityGallery extends SanityBase {
   _type: "gallery";
   image: Image;
   alt: { en: string; ro: string };

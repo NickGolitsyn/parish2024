@@ -5,6 +5,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Locale } from '@/i18n.config';
 import LocaleSwitcher from './localeSwitcher';
 import { getDictionary } from '@/lib/dictionary';
+import Image from 'next/image';
+import logo from '@/public/logo.jpg'
 
 interface NavigationItem {
   name: string;
@@ -38,10 +40,11 @@ export default function Navbar({ lang }: { lang: Locale }) {
         <div className="flex lg:flex-1">
           <a href={`/${lang}`} className="-m-1.5 p-1.5">
             <span className="sr-only">Holy Martyr Philothea & Saint Bede the Venerable Romanian Parish</span>
-            <img
-              className="h-12 w-auto"
-              src="https://parish-nextjs-sanity-g65r92i5z-nickgolitsyn.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fque4q559%2Fproduction%2Fb460bdc5012b74569b8010dc8a22c083330a5c24-1024x1013.jpg%3Fw%3D1024%26auto%3Dformat&w=256&q=75"
-              alt=""
+            <Image 
+              src={logo} 
+              alt={'logo'}
+              width={48}
+              height={48}
             />
           </a>
         </div>
@@ -72,10 +75,11 @@ export default function Navbar({ lang }: { lang: Locale }) {
           <div className="flex items-center justify-between">
           <a href={`/${lang}`} className="-m-1.5 p-1.5">
             <span className="sr-only">Holy Martyr Philothea & Saint Bede the Venerable Romanian Parish</span>
-            <img
-              className="h-12 w-auto"
-              src="https://parish-nextjs-sanity-g65r92i5z-nickgolitsyn.vercel.app/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fque4q559%2Fproduction%2Fb460bdc5012b74569b8010dc8a22c083330a5c24-1024x1013.jpg%3Fw%3D1024%26auto%3Dformat&w=256&q=75"
-              alt=""
+            <Image 
+              src={logo} 
+              alt={'logo'}
+              width={48}
+              height={48}
             />
           </a>
             <button

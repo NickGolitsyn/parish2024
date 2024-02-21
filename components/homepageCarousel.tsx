@@ -2,9 +2,9 @@
 import React from 'react'
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import Autoplay from "embla-carousel-autoplay"
-import { Image } from 'sanity';
 import { Home } from "@/typings";
 import { urlForImage } from '@/sanity/lib/image';
+import Image from "next/image";
 
 export default function HomepageCarousel({ home }: { home: Home[] }) {
   const autoplayPlugin = Autoplay({
@@ -21,10 +21,12 @@ export default function HomepageCarousel({ home }: { home: Home[] }) {
       <CarouselContent>
         {home[0].slideshow.map((item: any) => ( 
           <CarouselItem key={item?._key}>
-            <img 
-              src={urlForImage(item?.asset._ref)}
-              className='w-full aspect-video object-cover'
-              alt="placeholder"
+            <Image 
+              src={urlForImage(item?.asset._ref)} 
+              alt={"Cross"}
+              width={'500'}
+              height={'500'}
+              className="aspect-video w-full object-cover"
             />
           </CarouselItem>
         ))}

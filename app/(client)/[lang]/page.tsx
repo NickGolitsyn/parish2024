@@ -1,20 +1,11 @@
 import Image from "next/image";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-import Link from "next/link";
 import { groq } from "next-sanity";
 import { client } from "@/sanity/lib/client";
-import { urlForImage } from "@/sanity/lib/image";
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
-import Autoplay from "embla-carousel-autoplay"
 import HomepageCarousel from "@/components/homepageCarousel";
 import { Home } from "@/typings";
+import cross from "@/public/cross.png"
 
 const query = groq`
 *[_type == 'home']
@@ -32,13 +23,19 @@ export default async function Home({
     <main className="flex min-h-screen flex-col items-center justify-between py-24 mx-auto max-w-2xl">
       <div className="text-center pb-10">
         <h1 className="font-semibold sm:text-xl px-5" dangerouslySetInnerHTML={{ __html: page.home.title }} />
-        <h2 className="font-semibold text-sm sm:text-base pt-5" dangerouslySetInnerHTML={{ __html: page.home.subtitle }} />
+        <h2 className="font-semibold text-xs sm:text-base pt-5" dangerouslySetInnerHTML={{ __html: page.home.subtitle }} />
       </div>
       <div className="max-w-5xl w-full items-center justify-between text-sm lg:flex">
         <HomepageCarousel home={home} />
       </div>
-
-      <div className="mx-auto max-w-2xl py-4 sm:py-10 lg:py-14">
+      <div className="mx-auto max-w-2xl py-4 sm:py-10 lg:py-14 flex flex-col items-center">
+        <Image 
+          src={cross} 
+          alt={"Cross"}
+          width={'100'}
+          height={'100'}
+          className="max-h-24 sm:max-h-full w-auto"
+        />
         <div className="text-center">
           <p
             className="mt-6 text-sm sm:text-lg px-5 leading-8 text-gray-600"
@@ -51,3 +48,5 @@ export default async function Home({
     </main>
   );
 }
+
+export const revalidate = 500;
