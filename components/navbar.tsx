@@ -21,12 +21,12 @@ export default function Navbar({ lang }: { lang: Locale }) {
     const fetchNavigation = async () => {
       const { nav } = await getDictionary(lang);
       const navItems: NavigationItem[] = [
-        { name: nav.home, href: '/' },
-        { name: nav.about, href: '/about' },
-        { name: nav.contact, href: '/contact' },
-        { name: nav.services, href: '/services' },
-        { name: nav.gallery, href: '/gallery' },
-        { name: nav.donate, href: '/donate' },
+        { name: nav.home, href: '' },
+        { name: nav.about, href: 'about' },
+        { name: nav.contact, href: 'contact' },
+        { name: nav.services, href: 'services' },
+        { name: nav.gallery, href: 'gallery' },
+        { name: nav.donate, href: 'donate' },
       ];
       setNavigation(navItems);
     };
