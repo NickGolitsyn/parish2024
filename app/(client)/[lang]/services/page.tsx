@@ -1,4 +1,3 @@
-'use client'
 import React from 'react';
 import {
   Table,
@@ -15,6 +14,11 @@ import { getDictionary } from "@/lib/dictionary";
 import { client } from "@/sanity/lib/client";
 import { Services } from "@/typings";
 import { groq } from "next-sanity";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Services",
+};
 
 const query = groq`
 *[_type == 'services']

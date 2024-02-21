@@ -1,5 +1,10 @@
 import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Donate",
+};
 
 export default async function page({
   params: { lang }
