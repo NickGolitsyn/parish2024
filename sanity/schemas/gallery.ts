@@ -12,6 +12,18 @@ export default defineType({
       type: 'image', 
     }),
     defineField({
+      name: "width",
+      title: "Image width",
+      validation: (Rule) => Rule.required(),
+      type: 'number', 
+    }),
+    defineField({
+      name: "height",
+      title: "Image height",
+      validation: (Rule) => Rule.required(),
+      type: 'number', 
+    }),
+    defineField({
       name: "alt",
       title: "Alternative text",
       validation: (Rule) => Rule.required(),

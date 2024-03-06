@@ -25,7 +25,7 @@ export default function LocaleSwitcher() {
     <div className='flex gap-x-3'>
       {i18n.locales.map(locale => {
         const isActive = pathName.startsWith(`/${locale}`)
-        const linkClassName = `rounded-md size-10 flex justify-center items-center border border-gray-500/10 ${isActive ? 'bg-amber-100 text-black font-semibold' : 'bg-white text-black'}`
+        const linkClassName = `rounded-md size-10 flex justify-center items-center border border-gray-500/10 ${isActive ? 'bg-amber-100 text-black font-semibold' : 'bg-transparent text-black'}`
         return (
           <Link key={locale} className={linkClassName} href={redirectedPathName(locale)}>
             {/* {locale} */}

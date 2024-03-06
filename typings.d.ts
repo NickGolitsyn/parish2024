@@ -39,6 +39,8 @@ interface Services extends SanityBase {
 interface SanityGallery extends SanityBase {
   _type: "gallery";
   image: Image;
+  width: number;
+  height: number;
   alt: { en: string; ro: string };
 }
 

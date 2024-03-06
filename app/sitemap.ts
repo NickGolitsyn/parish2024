@@ -6,7 +6,7 @@ export default async function sitemap() {
   const sitemapEntries = languages.flatMap((lang) =>
     pages.map((page) => ({
       url: `${url}/${lang}${page}`,
-      lastModified: '2024-02-21',
+      lastModified: '2024-03-06',
     }))
   );
 

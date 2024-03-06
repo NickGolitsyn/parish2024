@@ -25,10 +25,10 @@ export default async function page({
         <div className='flex flex-col items-center mt-10'>
           <h1 className='text-2xl font-bold mb-2'>{page.about.saints}</h1>
           <div className='mt-3'>
-            <h2 className='text-xl font-bold mb-2 text-center'>Saint Philothea of Thrace, Protectress of Romania</h2>
+            <h2 className='text-xl font-bold mb-2 text-center'>{page.about.saintsName.philothea}</h2>
             <Image 
               src={philothea} 
-              alt={'Icon of Saint Philothea of Thrace, Protectress of Romania'} className='sm:float-right sm:ml-3 mb-3 sm:mb-1 rounded-md mx-auto' 
+              alt={`Icon of ${page.about.saintsName.philothea}`} className='sm:float-right sm:ml-3 mb-3 sm:mb-1 rounded-md mx-auto' 
             />
             <div className='space-y-2'>
               {page.about.philothea.map((p, index) => (
@@ -43,10 +43,10 @@ export default async function page({
             </div>
           </div>
           <div className='mt-3'>
-            <h2 className='text-xl font-bold mb-2 text-center'>Venerable Bede, the Church Historian</h2>
+            <h2 className='text-xl font-bold mb-2 text-center'>{page.about.saintsName.bede}</h2>
             <Image 
               src={bede} 
-              alt={'Icon of Venerable Bede, the Church Historian'} 
+              alt={`Icon of ${page.about.saintsName.bede}`} 
               className='sm:float-left sm:mr-3 mb-3 sm:mb-1 rounded-md mx-auto' 
             />
             <div className='space-y-2'>

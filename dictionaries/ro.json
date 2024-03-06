@@ -19,6 +19,10 @@
     "about": {
       "parish": "Despre Parohia Noastră",
       "saints": "Despre Sfinții Noștri",
+      "saintsName": {
+        "philothea": "Saint Philothea of Thrace, Protectress of Romania",
+        "bede": "Venerable Bede, the Church Historia"
+      },
       "philothea": [
         "Saint Philothea (Philofthea) of Argesh was born in Trnovo, the old capital of Bulgaria, around 1206. Her father was a farmer, and her mother was from Wallachia. She died when Philothea was still a child, and her father remarried.",
         "The child was often punished by her stepmother, who accused her of being disobedient, and of giving their possesions away to the poor. Her father chastised her for this, but Philothea continued to attend church services and to do good to others, just as her mother had taught her. As she grew older, she was adorned with the virtues of prayer, virginity, and almsgiving.",
@@ -48,14 +52,22 @@
       }
     },
     "services": {
+      "mainTitle": "Upcoming Services",
+      "mainDescription": "Our priest, Father Ioan, only serves approximately once a month at present. The next service is usually announced a few weeks in advance.",
       "upcoming": "Servicii viitoare",
-      "past": "Servicii anterioare",
       "date": "Data",
       "fastingCode": "Cod de post",
       "description": "Descriere",
       "bibleReading": "Citirea Bibliei",
-      "upcomingTableDesc": "O listă de servicii viitoare",
-      "pastTableDesc": "O listă cu serviciile anterioare"
+      "upcomingTableDesc": "O listă de servicii viitoare"
+    },
+    "contact": {
+      "contactTitle": "Contact us",
+      "contactDesc": "For confessions, baptisms, weddings, funerals, or to be added to the parish whatsapp group, please contact Fr Ioan Pop",
+      "tel": "+44 7980 022008",
+      "email": "ovidiuioan_pop@yahoo.co.uk",
+      "visitTitle": "Visit us",
+      "visitDesc": "The church is open only during the times announced on the <Link href='/ro/services' class='underline text-amber-600'>services page</Link>. Everybody is welcome."
     },
     "donate": {
       "title": "Donează"
