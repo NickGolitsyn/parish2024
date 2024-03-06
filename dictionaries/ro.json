@@ -14,11 +14,38 @@
     "home": {
       "title": "Bine ați venit în parohia românească Sfânta Muceniță Filotea și Sfântul Beda Venerabilul",
       "subtitle": "O parohie ortodoxă care servește<br/>Norwich și East Anglia",
-      "description": "Pe acest site puteți afla <Link class=\"underline text-amber-600\" href='/ro/about'>despre noi</Link>, <Link class=\"underline text-amber-600\" href='/ro'>unde</Link> ne închinăm, <Link class=\"underline text-amber-600\" href='/ro/services'>când</Link> sunt serviciile noastre, cum să <Link class=\"underline text-amber-600\" href='/ro/contact'>contactați-ne</Link> și cum să <Link class=\"underline text-amber-600\" href='/ro/donate'>sprijină</Link>-ne."
+      "description": "Pe acest site puteți afla <Link class=\"underline text-amber-600\" href='/ro/about'>despre noi</Link>, <Link class=\"underline text-amber-600\" href='/ro/contact#visit'>unde</Link> ne închinăm, <Link class=\"underline text-amber-600\" href='/ro/services'>când</Link> sunt serviciile noastre, cum să <Link class=\"underline text-amber-600\" href='/ro/contact'>contactați-ne</Link> și cum să <Link class=\"underline text-amber-600\" href='/ro/donate'>sprijină</Link>-ne."
     },
     "about": {
       "parish": "Despre Parohia Noastră",
-      "saints": "Despre Sfinții Noștri"
+      "saints": "Despre Sfinții Noștri",
+      "philothea": [
+        "Saint Philothea (Philofthea) of Argesh was born in Trnovo, the old capital of Bulgaria, around 1206. Her father was a farmer, and her mother was from Wallachia. She died when Philothea was still a child, and her father remarried.",
+        "The child was often punished by her stepmother, who accused her of being disobedient, and of giving their possesions away to the poor. Her father chastised her for this, but Philothea continued to attend church services and to do good to others, just as her mother had taught her. As she grew older, she was adorned with the virtues of prayer, virginity, and almsgiving.",
+        "Saint Philothea used to bring food to her father, who was out working in the fields. Not all of the food reached him, however, because the girl would give some of it to the poor children begging in the street. When he complained to his wife that she did not prepare enough food for him, she replied, “I send you plenty of food. Ask your daughter what she does with it.”",
+        "Becoming angry with Philothea, her father decided to spy on her to see what happened to the food. From a place of concealment, he saw her giving food to the poor children who came to her. In a violent rage, he took the axe from his belt and threw it at the twelve-year-old girl, hitting her in the leg. The wound was mortal, and she soon gave her pure soul into God’s hands.",
+        "The man was filled with fear and remorse, and tried to lift his daughter’s body from the ground, but it became as heavy as a rock. Then the wretch ran to the Archbishop of Trnovo to confess his sin and explain what had happened. The Archbishop and his clergy went with candles and incense to take up the martyr’s body and bring it to the cathedral, but even they were unable to lift it.",
+        "The Archbishop realized that Saint Philothea did not wish to remain in her native land, so he began to name various monasteries, churches, and cathedrals to see where she wished to go. Not until he named the Monastery of Curtea de Argesh in Romania were they able to lift her holy relics and place them in a coffin. The Archbishop wrote to the Romanian Voievode Radu Negru, asking him to accept the saint’s relics.",
+        "The Archbishop and his clergy carried the holy relics in procession as far as the Danube, where they were met by Romanian clergy, monastics, and the faithful. Then they were carried to the Curtea de Argesh Monastery.",
+        "Many people have been healed at the tomb of Saint Philothea in a small chapel in the belltower behind the monastery church, and those who entreat her intercession receive help from her. Each year on December 7 there is a festal pilgrimage to the Monastery, and people come from all over Romania. The relics of Saint Philothea are carried around the courtyard in procession, and there are prayers for the sick.",
+        "The holy Virgin Martyr Philothea is venerated in Romania, Bulgaria, and throughout the Orthodox world."
+      ],
+      "bede": [
+        "Saint Philothea (Philofthea) of Argesh was born in Trnovo, the old capital of Bulgaria, around 1206. Her father was a farmer, and her mother was from Wallachia. She died when Philothea was still a child, and her father remarried.",
+        "The child was often punished by her stepmother, who accused her of being disobedient, and of giving their possesions away to the poor. Her father chastised her for this, but Philothea continued to attend church services and to do good to others, just as her mother had taught her. As she grew older, she was adorned with the virtues of prayer, virginity, and almsgiving.",
+        "Saint Philothea used to bring food to her father, who was out working in the fields. Not all of the food reached him, however, because the girl would give some of it to the poor children begging in the street. When he complained to his wife that she did not prepare enough food for him, she replied, “I send you plenty of food. Ask your daughter what she does with it.”",
+        "Becoming angry with Philothea, her father decided to spy on her to see what happened to the food. From a place of concealment, he saw her giving food to the poor children who came to her. In a violent rage, he took the axe from his belt and threw it at the twelve-year-old girl, hitting her in the leg. The wound was mortal, and she soon gave her pure soul into God’s hands.",
+        "The man was filled with fear and remorse, and tried to lift his daughter’s body from the ground, but it became as heavy as a rock. Then the wretch ran to the Archbishop of Trnovo to confess his sin and explain what had happened. The Archbishop and his clergy went with candles and incense to take up the martyr’s body and bring it to the cathedral, but even they were unable to lift it.",
+        "The Archbishop realized that Saint Philothea did not wish to remain in her native land, so he began to name various monasteries, churches, and cathedrals to see where she wished to go. Not until he named the Monastery of Curtea de Argesh in Romania were they able to lift her holy relics and place them in a coffin. The Archbishop wrote to the Romanian Voievode Radu Negru, asking him to accept the saint’s relics.",
+        "The Archbishop and his clergy carried the holy relics in procession as far as the Danube, where they were met by Romanian clergy, monastics, and the faithful. Then they were carried to the Curtea de Argesh Monastery.",
+        "Many people have been healed at the tomb of Saint Philothea in a small chapel in the belltower behind the monastery church, and those who entreat her intercession receive help from her. Each year on December 7 there is a festal pilgrimage to the Monastery, and people come from all over Romania. The relics of Saint Philothea are carried around the courtyard in procession, and there are prayers for the sick.",
+        "The holy Virgin Martyr Philothea is venerated in Romania, Bulgaria, and throughout the Orthodox world."
+      ],
+      "source": {
+        "philothea": "https://www.oca.org/saints/lives/2024/12/07/103491-saint-philothea-of-thrace-protectress-of-romania",
+        "bede": "https://www.oca.org/saints/lives/2019/05/27/103796-venerable-bede-the-church-historian",
+        "label": "Source"
+      }
     },
     "services": {
       "upcoming": "Servicii viitoare",

@@ -6,7 +6,7 @@ import { Locale } from '@/i18n.config';
 import LocaleSwitcher from './localeSwitcher';
 import { getDictionary } from '@/lib/dictionary';
 import Image from 'next/image';
-import logo from '@/public/logo.jpg'
+import logo from '@/public/logo.jpg';
 
 interface NavigationItem {
   name: string;
@@ -43,19 +43,23 @@ export default function Navbar({ lang }: { lang: Locale }) {
             <Image 
               src={logo} 
               alt={'logo'}
-              width={48}
-              height={48}
+              width={80}
+              height={80}
+              className='rounded-md'
             />
           </a>
         </div>
-        <div className="flex lg:hidden">
+        <div className="flex lg:hidden gap-5">
+          <div>
+            <LocaleSwitcher />
+          </div>
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+            <Bars3Icon className="size-6" aria-hidden="true" />
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
@@ -78,8 +82,9 @@ export default function Navbar({ lang }: { lang: Locale }) {
             <Image 
               src={logo} 
               alt={'logo'}
-              width={48}
-              height={48}
+              width={80}
+              height={80}
+              className='rounded-md'
             />
           </a>
             <button
@@ -88,7 +93,7 @@ export default function Navbar({ lang }: { lang: Locale }) {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Close menu</span>
-              <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+              <XMarkIcon className="size-6" aria-hidden="true" />
             </button>
           </div>
           <div className="mt-6 flow-root">

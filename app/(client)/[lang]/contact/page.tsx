@@ -3,7 +3,7 @@ import { getDictionary } from '@/lib/dictionary'
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Donate",
+  title: "Contact",
 };
 
 export default async function page({
@@ -16,7 +16,7 @@ export default async function page({
   const mapSrc = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(location)}`;
   const { page } = await getDictionary(lang)
   return (
-    <main className="py-24 px-5 max-w-screen-md mx-auto flex flex-col items-center">
+    <main className="pt-36 px-5 max-w-screen-md mx-auto flex flex-col items-center">
       <div className='flex flex-col items-center w-full'>
         <div>
           <h1 className='text-2xl text-center font-bold mb-2'>Contact us</h1>
@@ -33,7 +33,7 @@ export default async function page({
           </div>
         </div>
       </div>
-      <div className='flex flex-col items-center mt-10 w-full justify-between'>
+      <div className='flex flex-col items-center mt-10 w-full justify-between' id="visit">
         <div>
           <h1 className='text-2xl font-bold mb-2 text-center'>Visit us</h1>
           <p className='text-sm sm:text-base text-center max-w-md'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>

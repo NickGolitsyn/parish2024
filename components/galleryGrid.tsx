@@ -34,7 +34,7 @@ export default function GalleryGrid({ lang }: { lang: any }) {
           original={urlForImage(item?.image.asset._ref)}
           thumbnail="https://placehold.co/80x60"
           width="1024"
-          height="768"
+          height="1024"
         >
           {({ ref, open }) => (
             <Image 

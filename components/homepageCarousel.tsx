@@ -5,12 +5,18 @@ import Autoplay from "embla-carousel-autoplay"
 import { Home } from "@/typings";
 import { urlForImage } from '@/sanity/lib/image';
 import Image from "next/image";
+import { groq } from 'next-sanity';
+import { client } from '@/sanity/lib/client';
 
-export default function HomepageCarousel({ home }: { home: Home[] }) {
+const query = groq`
+*[_type == 'home']
+`;
+
+export default async function HomepageCarousel() {
   const autoplayPlugin = Autoplay({
     delay: 5000,
   });
-
+  const home: Home[] = await client.fetch(query);
   return (
     <Carousel 
           plugins={[autoplayPlugin]}
@@ -36,3 +42,5 @@ export default function HomepageCarousel({ home }: { home: Home[] }) {
     </Carousel>
   )
 }
+
+export const revalidate = 500;

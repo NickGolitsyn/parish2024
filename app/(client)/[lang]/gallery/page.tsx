@@ -15,8 +15,8 @@ export default async function page({
 }) {
   const { page } = await getDictionary(lang)
   return (
-    <main className="py-24 px-5">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center [&>img]:h-32">
+    <main className="pt-36 px-5">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
         <GalleryGrid lang={lang} />
       </div>
     </main>
