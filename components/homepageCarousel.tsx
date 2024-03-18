@@ -32,7 +32,7 @@ export default async function HomepageCarousel() {
               alt={"Cross"}
               width={'500'}
               height={'500'}
-              className="aspect-video w-full object-cover"
+              className="aspect-[16/12] rounded-md w-full object-cover"
             />
           </CarouselItem>
         ))}

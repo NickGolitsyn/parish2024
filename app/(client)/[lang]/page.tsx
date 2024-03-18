@@ -4,6 +4,7 @@ import { getDictionary } from "@/lib/dictionary";
 import HomepageCarousel from "@/components/homepageCarousel";
 import { Home } from "@/typings";
 import cross from "@/public/cross.png"
+import NewsFeed from "@/components/newsFeed";
 
 export default async function Home({
   params: { lang }
@@ -38,6 +39,7 @@ export default async function Home({
           />
         </div>
       </div>
+      <NewsFeed />
     </main>
   );
 }

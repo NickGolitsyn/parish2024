@@ -20,7 +20,10 @@ export default async function page({
     <main className="pt-36 mb-20 px-5 max-w-screen-md mx-auto">
         <div className='flex flex-col items-center'>
           <h1 className='text-2xl font-bold mb-2'>{page.about.parish}</h1>
-          <p className='text-sm sm:text-base'>We belong to the Romanian Orthodox Metropolis of Western and Southern Europe (part of the Romanian Patriarchate) led by His Eminence Iosif, Archbishop and Metropolitan. Our parish was inaugurated on the 19th of December 2010.</p>
+          <div className='space-y-2'>
+            <p className='text-sm sm:text-base'>We belong to the Romanian Orthodox Metropolis of Western and Southern Europe (part of the Romanian Patriarchate) led by His Eminence Iosif, Archbishop and Metropolitan. Our parish was inaugurated on the 19th of December 2010.</p>
+            <p className='text-sm sm:text-base'>“For the Romanians in the diaspora and all those in need, church is the first stopover. It provides spiritual, emotional and even material support. It is the place where we take in the comfort of the services and holy sacraments, even if for some people this happens only once a year, at Easter. Church is the ship that takes us to the safe shore, drifting free from danger over the troubled waters of nowaday’s chaotic world.” (Fr Liviu Barbu, the founder and our first parish priest).</p>
+          </div>
         </div>
         <div className='flex flex-col items-center mt-10'>
           <h1 className='text-2xl font-bold mb-2'>{page.about.saints}</h1>
@@ -35,7 +38,7 @@ export default async function page({
                 <p key={`p-${index}`} className='text-sm sm:text-base'>{p}</p>
               ))}
               <Link 
-                className='underline text-amber-600'
+                className='underline text-amber-600 text-sm sm:text-base'
                 href={page.about.source.philothea}
               >
                 {page.about.source.label}
@@ -54,7 +57,7 @@ export default async function page({
                 <p key={`b-${index}`} className='text-sm sm:text-base'>{p}</p>
               ))}
               <Link 
-                className='underline text-amber-600'
+                className='underline text-amber-600 text-sm sm:text-base'
                 href={page.about.source.bede}
               >
                 {page.about.source.label}
