@@ -22,7 +22,7 @@ export default async function page({
           <h1 className='text-2xl font-bold mb-2'>{page.about.parish}</h1>
           <div className='space-y-2'>
             <p className='text-sm sm:text-base'>We belong to the Romanian Orthodox Metropolis of Western and Southern Europe (part of the Romanian Patriarchate) led by His Eminence Iosif, Archbishop and Metropolitan. Our parish was inaugurated on the 19th of December 2010.</p>
-            <p className='text-sm sm:text-base'>“For the Romanians in the diaspora and all those in need, church is the first stopover. It provides spiritual, emotional and even material support. It is the place where we take in the comfort of the services and holy sacraments, even if for some people this happens only once a year, at Easter. Church is the ship that takes us to the safe shore, drifting free from danger over the troubled waters of nowaday’s chaotic world.” (Fr Liviu Barbu, the founder and our first parish priest).</p>
+            <p className='text-sm sm:text-base'>“For the Romanians in the diaspora and all those in need, church is the first port of call. It provides spiritual, emotional and even material support. It is the place where we take in the comfort of the services and holy sacraments, even if for some people this happens only once a year, at Easter. Church is the ship that takes us to the safe shore, drifting free from danger over the troubled waters of nowaday’s chaotic world.” (Fr Liviu Barbu, the founder and our first parish priest).</p>
           </div>
         </div>
         <div className='flex flex-col items-center mt-10'>

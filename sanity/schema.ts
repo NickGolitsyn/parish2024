@@ -4,9 +4,10 @@ import contact from './schemas/contact';
 import gallery from './schemas/gallery';
 import donate from './schemas/donate';
 import home from './schemas/home';
+import news from './schemas/news';
 
 export const schema: { types: any[] } = {
-  types: [home, about, contact, services, gallery, donate],
+  types: [home, news, about, contact, services, gallery, donate],
 };
 
 // Add these lines to your schema.ts file

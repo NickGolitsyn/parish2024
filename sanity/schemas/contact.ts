@@ -9,58 +9,52 @@ export default defineType({
       name: "contact",
       title: "Contact us",
       validation: (Rule) => Rule.required(),
-      type: 'object', 
+      type: 'object',
       fields: [
-        {
-          title: 'English',
-          name: 'en',
-          type: 'text'
-        },
-        {
-          title: 'Romanian',
-          name: 'ro',
-          type: 'text'
-        }
+        { title: 'English', name: 'en', type: 'text' },
+        { title: 'Romanian', name: 'ro', type: 'text' }
       ]
     }),
     defineField({
       name: "email",
       title: "Contact email",
       validation: (Rule) => Rule.required(),
-      type: 'string', 
+      type: 'string',
     }),
     defineField({
       name: "tel",
       title: "Contact phone number",
       validation: (Rule) => Rule.required(),
-      type: 'string', 
+      type: 'string',
     }),
     defineField({
       name: "visit",
       title: "Visit us",
       validation: (Rule) => Rule.required(),
-      type: 'object', 
+      type: 'object',
       fields: [
-        {
-          title: 'English',
-          name: 'en',
-          type: 'text'
-        },
-        {
-          title: 'Romanian',
-          name: 'ro',
-          type: 'text'
-        }
+        { title: 'English', name: 'en', type: 'text' },
+        { title: 'Romanian', name: 'ro', type: 'text' }
       ]
     }),
     defineField({
       name: "address",
       title: "Church address",
       validation: (Rule) => Rule.required(),
-      type: 'string', 
+      type: 'string',
     }),
   ],
   options: {
     singleInstance: true,
+    preview: {
+      select: {
+        title: 'contact.en'
+      },
+      prepare() {
+        return {
+          title: 'Contact'
+        }
+      }
+    }
   },
 });

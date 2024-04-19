@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import Autoplay from "embla-carousel-autoplay";
-import { Home } from "@/typings";
+import { HomePage } from "@/typings";
 import { urlForImage } from '@/sanity/lib/image';
 import Image from "next/image";
 import { groq } from 'next-sanity';
@@ -11,13 +11,13 @@ import { client } from '@/sanity/lib/client';
 const query = groq`*[_type == 'home']`;
 
 export default function HomepageCarousel() {
-  const [home, setHome] = useState<Home[]>([]);
+  const [home, setHome] = useState<HomePage[]>([]);
   const [loading, setLoading] = useState(true);
   const autoplayPlugin = Autoplay({ delay: 5000 });
 
   useEffect(() => {
     const fetchData = async () => {
-      const data: Home[] = await client.fetch(query);
+      const data: HomePage[] = await client.fetch(query);
       setHome(data);
       setLoading(false); // Set loading to false once the data is fetched
     };

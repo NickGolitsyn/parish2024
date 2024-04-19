@@ -27,6 +27,7 @@ export default function Navbar({ lang }: { lang: Locale }) {
         { name: nav.services, href: 'services' },
         { name: nav.gallery, href: 'gallery' },
         { name: nav.donate, href: 'donate' },
+        { name: nav.sundaySchool, href: 'sunday-school' },
       ];
       setNavigation(navItems);
     };

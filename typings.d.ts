@@ -7,7 +7,7 @@ type SanityBase = {
   _updatedAt: string;
 }
 
-interface Home extends SanityBase {
+interface HomePage extends SanityBase {
   _type: "home";
   slideshow: Image[];
   welcomeText: { en: string; ro: string };
@@ -42,6 +42,13 @@ interface SanityGallery extends SanityBase {
   width: number;
   height: number;
   alt: { en: string; ro: string };
+}
+
+interface News extends SanityBase {
+  _type: "news";
+  title: { en: string; ro: string };
+  content: { en: block; ro: block };
+  imagedata: { image: Image; alt: { en: string; ro: string }; }
 }
 
 interface Donate extends SanityBase {
