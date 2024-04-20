@@ -8,7 +8,6 @@ export default defineType({
     defineField({
       name: 'title',
       title: 'News Title',
-      type: 'string',
       validation: (Rule) => Rule.required(),
       type: 'object',
       fields: [
@@ -23,6 +22,15 @@ export default defineType({
           type: 'string',
         }
       ]
+    }),
+    defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      validation: (Rule) => Rule.required(),
+      options: {
+        source: 'title.en'
+      }
     }),
     // defineField({
     //   name: 'description',

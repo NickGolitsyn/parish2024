@@ -1,6 +1,5 @@
 'use client'
 import Image from 'next/image'
-import placeholder from '@/public/320x180.png'
 import { useEffect, useState } from 'react'
 import { Button } from './ui/button'
 import { groq } from 'next-sanity'
