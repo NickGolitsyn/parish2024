@@ -72,6 +72,9 @@
     },
     "donate": {
       "title": "Donează"
+    },
+    "news": {
+      "read": "Citit"
     }
   }
 }

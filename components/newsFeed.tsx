@@ -1,19 +1,37 @@
 'use client'
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import { Button } from './ui/button'
-import { groq } from 'next-sanity'
-import { News } from '@/typings'
-import { client } from '@/sanity/lib/client'
-import { urlForImage } from '@/sanity/lib/image'
+import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { Button } from './ui/button';
+import { groq } from 'next-sanity';
+import { News } from '@/typings';
+import { client } from '@/sanity/lib/client';
+import { urlForImage } from '@/sanity/lib/image';
+import Link from 'next/link';
+import { Locale } from "@/i18n.config";
+import { toPlainText } from '@portabletext/react';
 
 const query = groq`*[_type == 'news']`;
 
 export const revalidate = 500;
 
-export default function NewsFeed() {
+export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) {
   const [news, setNews] = useState<News[]>([]);
   const [loading, setLoading] = useState(true);
+
+  function capitalizeFirstLetterOfSentences(text: String) {
+    const sentences = text.split(/[.!?]\s+/);
+    const capitalizedSentences = sentences.map((sentence) => {
+      const words = sentence.split(' ');
+      const capitalizedWords = words.map((word, index) => {
+        if (index === 0) {
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        }
+        return word.toLowerCase();
+      });
+      return capitalizedWords.join(' ');
+    });
+    return capitalizedSentences.join('. ');
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -62,9 +80,21 @@ export default function NewsFeed() {
               alt={'News image'}
               className='rounded-sm h-40 w-auto'
             />
-            <div>
-              <h1 className='font-semibold sm:text-xl'>Easter Services</h1>
-              <p className='text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <div className='flex flex-col gap-2'>
+              <h1 className='font-semibold sm:text-xl'>{e?.title[lang]}</h1>
+              {/* <p className='text-sm'>
+                {e?.content[lang] && toPlainText(e.content[lang]).split(' ').slice(0, 50).join(' ')}...
+              </p> */}
+              <p className='text-sm'>
+                {e?.content[lang] &&
+                  capitalizeFirstLetterOfSentences(toPlainText(e.content[lang]))
+                    .split(' ')
+                    .slice(0, 70)
+                    .join(' ')}...
+              </p>
+              <Button asChild className='w-min'>
+                <Link href={`${lang}/news/${e?.slug.current}`}>{words.read}</Link>
+              </Button>
             </div>
           </div>
         ))}

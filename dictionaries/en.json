@@ -79,6 +79,9 @@
     },
     "donate": {
       "title": "Donate"
+    },
+    "news": {
+      "read": "Read"
     }
   }
 }

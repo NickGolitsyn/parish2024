@@ -38,7 +38,7 @@ export default async function Home({
           />
         </div>
       </div>
-      <NewsFeed />
+      <NewsFeed lang={lang} words={page.news} />
     </main>
   );
 }
