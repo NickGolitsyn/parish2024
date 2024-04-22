@@ -11,6 +11,7 @@
 - [x] Change call to action from paragraph to cards
 - [x] Update welcome text
 - [x] Align text to left and realign email & tel on contact page
+- [ ] Fix Italic parts of welcome message
 - [ ] Add loading state for carousel
 - [ ] Text translation
 - [ ] Close gallery down

@@ -58,7 +58,7 @@ export default async function Home({
           className="max-h-32 sm:max-h-full w-auto"
         />
         <div className="text-center">
-          <div className="grid grid-cols-2 gap-5 my-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 my-5">
             <Card
               title="About"
               description="About our parish and saints."
