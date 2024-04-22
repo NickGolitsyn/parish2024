@@ -3,12 +3,17 @@
 ## TO DO
 
 - [x] Add news schema to Sanity & connect to UI
-- [ ] Make logo Expand when pressed and add "About Saints" text
-- [ ] Add photos to carousel
-- [ ] Explain with carousel photo problem
+- [x] Add sunday school page and schema
+- [x] Update services table by removing fasting code and bible readings
+- [x] Add photos to carousel
 - [x] Welcome title text wrapping
-- [ ] Sunday school page
+- [x] Add news header
+- [x] Change call to action from paragraph to cards
+- [x] Update welcome text
+- [x] Align text to left and realign email & tel on contact page
+- [ ] Add loading state for carousel
 - [ ] Text translation
 - [ ] Close gallery down
 - [ ] Repalce placeholder text on Donate page
-- [ ] Fr Ioan’s surname (Pop) should be on the same line as his name.
+- [ ] Add Donate section to the bottom of the page
+- [ ] Change news card style

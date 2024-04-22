@@ -1,3 +1,4 @@
+import SundaySchoolFeed from '@/components/sundaySchoolFeed';
 import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
 import { Metadata } from 'next';
@@ -14,7 +15,10 @@ export default async function page({
   const { page } = await getDictionary(lang)
   return (
     <main className="pt-36 mb-20 px-5 max-w-screen-md mx-auto">
-      <h1>Sunday School</h1>
+      <h1 className='text-2xl font-bold mb-2'>Sunday School</h1>
+      <div>
+        <SundaySchoolFeed lang={lang} words={page.news} />
+      </div>
     </main>
   )
 }

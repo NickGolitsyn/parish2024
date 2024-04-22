@@ -19,6 +19,7 @@ export default defineConfig({
             singletonListItem(S, 'about'),
             singletonListItem(S, 'contact'),
             S.documentTypeListItem('news').title('news'),
+            S.documentTypeListItem('sundayschool').title('sunday school'),
             S.documentTypeListItem('services').title('services'),
             S.documentTypeListItem('gallery').title('gallery'),
             singletonListItem(S, 'donate'),

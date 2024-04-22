@@ -60,18 +60,18 @@ export default async function page({ params: { lang } }: { params: { lang: Local
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">{page.services.date}</TableHead>
-            <TableHead className="text-nowrap w-10">{page.services.fastingCode}</TableHead>
+            {/* <TableHead className="text-nowrap w-10">{page.services.fastingCode}</TableHead> */}
             <TableHead>{page.services.description}</TableHead>
-            <TableHead className="text-nowrap w-[100px]">{page.services.bibleReading}</TableHead>
+            {/* <TableHead className="text-nowrap w-[100px]">{page.services.bibleReading}</TableHead> */}
           </TableRow>
         </TableHeader>
         <TableBody>
           {upcomingServices.map((item: Services) => (
             <TableRow key={item._id}>
               <TableCell className="font-medium">{item.date}</TableCell>
-              <TableCell>{item.fastingCode}</TableCell>
+              {/* <TableCell>{item.fastingCode}</TableCell> */}
               <TableCell>{convertDescriptionToLink(item.description[lang])}</TableCell>
-              <TableCell>{item.bibleReadings[lang]}</TableCell>
+              {/* <TableCell>{item.bibleReadings[lang]}</TableCell> */}
             </TableRow>
           ))}
         </TableBody>
