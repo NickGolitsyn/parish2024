@@ -19,7 +19,10 @@
         "Holy Martyr Philothea", 
         "& Saint Bede the Venerable"
       ],
-      "subtitle": "An Orthodox parish serving<br/>Norwich & East Anglia",
+      "subtitle": [
+        "An Orthodox parish serving",
+        "Norwich & East Anglia"
+      ],
       "description": "On this website you can find out <Link class=\"underline text-amber-600\" href='/en/about'>about us</Link>, <Link class=\"underline text-amber-600\" href='/en/contact#visit'>where</Link> we worship, <Link class=\"underline text-amber-600\" href='/en/services'>when</Link> our services are, how to <Link class=\"underline text-amber-600\" href='/en/contact'>contact</Link> us and how to <Link class=\"underline text-amber-600\" href='/en/donate'>support</Link> us.",
       "poster": [
         "This year we celebrate our parish feast dedicated to St Bede the Venerable, with a play about St Bede and other Anglo Saxon saints, written and performed by storyteller Anna Conomos:",
@@ -29,6 +32,7 @@
     },
     "about": {
       "parish": "About Our Parish",
+      "parishText": "We belong to the Romanian Orthodox Metropolis of Western and Southern Europe (part of the Romanian Patriarchate) led by His Eminence Iosif, Archbishop and Metropolitan. Our parish was inaugurated on the 19th of December 2010.",
       "saints": "Learn About Our Saints",
       "saintsName": {
         "philothea": "Saint Philothea of Thrace, Protectress of Romania",
@@ -93,13 +97,15 @@
       "text": [
         "We are always grateful for your support. The parish relies completely on donations.",
         "A means of donating via this website will be available shortly."
-      ]
+      ],
+      "image": "https://utfs.io/f/c229d036-c22f-438b-8baf-257bb6d494be-j5o388.jpg"
     },
     "sundaySchool": {
       "title": "Sunday School",
       "text": "Sunday School (ages 4+) takes place straight after the Holy Liturgy on the Sundays when we have a service."
     },
     "news": {
+      "title": "News",
       "read": "Read"
     }
   }

@@ -15,10 +15,14 @@
 - [x] Add text to sunday school page
 - [x] Fix Italic parts of welcome message
 - [x] Repalce placeholder text on Donate page
-- [ ] Fix map
+- [x] Fix map
+- [x] Add icon to about page
+- [x] Text translation
+- [x] Add Donate section to the bottom of the page
+- [ ] Localise page titles
+- [ ] Terms and conditions & Privacy Policy
+- [ ] Add description for news in Schema
 - [ ] Add facebook button
 - [ ] Add loading state for carousel
-- [ ] Text translation
 - [ ] Close gallery down
-- [ ] Add Donate section to the bottom of the page
 - [ ] Change news card style

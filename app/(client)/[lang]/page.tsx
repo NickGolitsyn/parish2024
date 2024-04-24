@@ -6,6 +6,7 @@ import cross from "@/public/cross.png"
 import NewsFeed from "@/components/newsFeed";
 import Card from "@/components/card";
 import React from "react";
+import Link from "next/link";
 
 export default async function Home({
   params: { lang }
@@ -25,7 +26,13 @@ export default async function Home({
             <span>{page.home.title[3]}</span>
           </div>
         </div>
-        <h2 className="font-semibold text-xs sm:text-base pt-5" dangerouslySetInnerHTML={{ __html: page.home.subtitle }} />
+        <h2 className="font-semibold text-xs sm:text-base pt-5 flex flex-col">
+          {page.home.subtitle.map((text, index) => (
+            <span key={index}>
+              {text}
+            </span>
+          ))}
+        </h2>
       </section>
       <section className="max-w-5xl w-full items-center justify-between text-sm lg:flex">
         <HomepageCarousel />
@@ -62,7 +69,7 @@ export default async function Home({
             />
           </div> */}
           <p
-            className="mt-6 text-sm sm:text-lg px-5 leading-8 text-gray-600"
+            className="mt-6 text-sm sm:text-lg px-5 text-gray-600"
             dangerouslySetInnerHTML={{
               __html: page.home.description.replace(/<Link/g, '<a').replace(/<\/Link>/g, '</a>'),
             }}
@@ -70,7 +77,7 @@ export default async function Home({
         </div>
       </section>
       <section>
-        <h1 className='text-2xl font-bold mb-2 mx-5'>News</h1>
+        <h1 className='text-2xl font-bold mb-2 mx-5'>{page.news.title}</h1>
         <NewsFeed lang={lang} words={page.news} />
         <div className="flex flex-col-reverse sm:flex-row gap-2 mx-5 mb-5">
           <Image 
@@ -82,10 +89,21 @@ export default async function Home({
           />
           <div className="flex flex-col gap-1">
             {page.home.poster.map((text, index) => (
-              <p key={index}>{text}</p>
+              <p className="text-sm sm:text-base" key={index}>{text}</p>
             ))}
           </div>
         </div>
+      </section>
+      <section className="my-5">
+        <Link href={`${lang}/donate`}>
+          <Image 
+            src={page.donate.image} 
+            alt={"Donate to the Parish"}
+            width={500}
+            height={500}
+            className="h-auto sm:h-64 w-2/3 mx-auto sm:w-auto rounded-sm"
+          />
+        </Link>
       </section>
     </main>
   );

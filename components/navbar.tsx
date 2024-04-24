@@ -7,6 +7,7 @@ import LocaleSwitcher from './localeSwitcher';
 import { getDictionary } from '@/lib/dictionary';
 import Image from 'next/image';
 import logo from '@/public/logo.jpg';
+import Link from 'next/link';
 
 interface NavigationItem {
   name: string;
@@ -63,7 +64,7 @@ export default function Navbar({ lang }: { lang: Locale }) {
             <Bars3Icon className="size-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex lg:gap-x-8">
           {navigation.map((item) => (
             <a key={item.name} href={`/${lang}/${item.href}`} className="text-sm font-semibold leading-6 text-gray-900">
               {item.name}
@@ -112,6 +113,19 @@ export default function Navbar({ lang }: { lang: Locale }) {
               </div>
               <div className="py-6">
                 <LocaleSwitcher />
+                <a 
+                  className={'mt-3 rounded-md size-10 flex justify-center items-center border border-gray-500/10 bg-transparent text-black'} 
+                  href={'https://www.facebook.com/B.O.R.N.E.A.CO.UK/'}
+                  target='_blank'
+                  rel="noopener noreferrer"
+                >
+                  <Image
+                    src={'https://utfs.io/f/fc88e55e-1e76-480f-a56e-748c84373a28-87z83q.png'}
+                    width={20}
+                    height={20}
+                    alt="Picture of the author"
+                  />
+                </a>
               </div>
             </div>
           </div>

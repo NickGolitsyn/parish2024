@@ -1,14 +1,37 @@
-import { Locale } from '@/i18n.config'
-import { getDictionary } from '@/lib/dictionary'
-import { Metadata } from 'next';
+import { Locale } from '@/i18n.config';
+import { getDictionary } from '@/lib/dictionary';
+import { Metadata, ResolvingMetadata } from 'next';
 import Image from 'next/image';
-import philothea from '@/public/philothea.jpg'
-import bede from '@/public/bede.jpg'
+import philothea from '@/public/philothea.jpg';
+import bede from '@/public/bede.jpg';
 import Link from 'next/link';
+import logo from '@/public/logo.jpg';
 
-export const metadata: Metadata = {
-  title: "About",
-};
+// export const metadata: Metadata = {
+//   title: "About",
+// };
+// export async function generateMetadata({ params: { lang } } : { params: { lang: Locale} }) {
+//   return {
+//     // if(lang = 'ro') {
+//     //   title: 'A',
+//     // } else {
+//     //   title: 'About'
+//     // }
+//     title: 'About'
+//   }
+// }
+
+export async function generateMetadata({ params }: any, parent: ResolvingMetadata): Promise<Metadata> {
+  const { lang } = params;
+  const title = {
+    en: 'About',
+    ro: 'Despre'
+  };
+
+  return {
+    title: lang === 'ro' ? title.ro : title.en
+  };
+}
 
 export default async function page({
   params: { lang }
@@ -21,17 +44,25 @@ export default async function page({
         <div className='flex flex-col items-center'>
           <h1 className='text-2xl font-bold mb-2'>{page.about.parish}</h1>
           <div className='space-y-2'>
-            <p className='text-sm sm:text-base'>We belong to the Romanian Orthodox Metropolis of Western and Southern Europe (part of the Romanian Patriarchate) led by His Eminence Iosif, Archbishop and Metropolitan. Our parish was inaugurated on the 19th of December 2010.</p>
-            <p className='text-sm sm:text-base'>“For the Romanians in the diaspora and all those in need, church is the first port of call. It provides spiritual, emotional and even material support. It is the place where we take in the comfort of the services and holy sacraments, even if for some people this happens only once a year, at Easter. Church is the ship that takes us to the safe shore, drifting free from danger over the troubled waters of nowaday’s chaotic world.” (Fr Liviu Barbu, the founder and our first parish priest).</p>
+            <p className='text-sm sm:text-base'>{page.about.parishText}</p>
+            <p className='text-sm sm:text-base'>{page.contact.quote}</p>
           </div>
         </div>
         <div className='flex flex-col items-center mt-10'>
           <h1 className='text-2xl font-bold mb-2'>{page.about.saints}</h1>
+          <div>
+            <Image 
+              src={logo} 
+              alt={'Icon of St Philothea & Bede the Venerable'}
+              className='rounded-md mx-auto h-64 sm:h-80 w-auto'
+            />
+          </div>
           <div className='mt-3'>
             <h2 className='text-xl font-bold mb-2 text-center'>{page.about.saintsName.philothea}</h2>
             <Image 
               src={philothea} 
-              alt={`Icon of ${page.about.saintsName.philothea}`} className='sm:float-right sm:ml-3 mb-3 sm:mb-1 rounded-md mx-auto' 
+              alt={`Icon of ${page.about.saintsName.philothea}`} 
+              className='sm:float-right sm:ml-3 mb-3 sm:mb-1 rounded-md mx-auto' 
             />
             <div className='space-y-2'>
               {page.about.philothea.map((p, index) => (

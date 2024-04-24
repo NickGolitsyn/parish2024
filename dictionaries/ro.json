@@ -2,25 +2,28 @@
   "nav": {
     "home": "Acasă",
     "about": "Despre",
-    "contact": "Contactaţi-ne",
-    "services": "Servicii",
-    "gallery": "Galerie",
-    "donate": "Donează",
-    "sundaySchool": "Sunday School"
+    "contact": "Contact",
+    "services": "Programul slujbelor",
+    "gallery": "Activitatea parohiei",
+    "donate": "Donații",
+    "sundaySchool": "Școala de duminică"
   },
   "footer": {
-    "title": "Parohia Sfânta Muceniță Filotea și Sfântul Beda Venerabilul slujind la:<br/>Biserica Sf. Maria, Church Road, Gillingham, Beccles NR34 0ND, Regatul Unit."
+    "title": "Parohia Ortodoxă Română 'Sfânta Muceniță Filoteea și Sfântul Cuvios Beda' din Norwich și East Anglia. Adresa actuală: St Mary's Church, Church Road, Gillingham, Beccles NR34 0ND, Regatul Unit."
   },
   "page": {
     "home": {
       "title": [
-        "Bine ați venit în", 
-        "Parohia românească",
-        "Sfânta Muceniță Filotea",
-        "și Sfântul Beda Venerabilul"
+        "Bine ați venit în",
+        "parohia românească", 
+        "'Sfânta Muceniță Filotea",
+        "și Sfântul Cuvios Beda'"
       ],
-      "subtitle": "O parohie ortodoxă care servește<br/>Norwich și East Anglia",
-      "description": "Pe acest site puteți afla <Link class=\"underline text-amber-600\" href='/ro/about'>despre noi</Link>, <Link class=\"underline text-amber-600\" href='/ro/contact#visit'>unde</Link> ne închinăm, <Link class=\"underline text-amber-600\" href='/ro/services'>când</Link> sunt serviciile noastre, cum să <Link class=\"underline text-amber-600\" href='/ro/contact'>contactați-ne</Link> și cum să <Link class=\"underline text-amber-600\" href='/ro/donate'>sprijină</Link>-ne.",
+      "subtitle": [
+        "O parohie ortodoxă care deservește",
+        "zona Norwich și East Anglia"
+      ],
+      "description": "Pe acest site puteți afla <Link class=\"underline text-amber-600\" href='/ro/about'>despre noi</Link>, despre biserica <Link class=\"underline text-amber-600\" href='/ro/contact#visit'>unde</Link> ne închinăm, <Link class=\"underline text-amber-600\" href='/ro/services'>când</Link> sunt slujbele noastre, cum să ne <Link class=\"underline text-amber-600\" href='/ro/contact'>contactați</Link> și cum să ne <Link class=\"underline text-amber-600\" href='/ro/donate'>sprijiniți</Link>.",
       "poster": [
         "VĂ INVITĂM LA TEATRU, DE HRAM",
         "Anul acesta sărbătorim pe ocrotitorul parohiei noastre, Sf Cuv Beda, cu un spectacol în engleză, pentru cei mici și cei mari deopotrivă, cu și de Anna Conomos:",
@@ -30,10 +33,11 @@
     },
     "about": {
       "parish": "Despre Parohia Noastră",
-      "saints": "Despre Sfinții Noștri",
+      "parishText": "Aparținem Mitropoliei Ortodoxe Române a Europei Occidentale şi Meridionale, cu sediul la Paris,(parte a Patriarhiei Române), condusă de Înalt Preasfinția Sa, Mitropolitul Iosif. Parohia noastră a fost inaugurată pe 19 decembrie 2010.",
+      "saints": "Despre Sfinții Noștri Ocrotitori",
       "saintsName": {
-        "philothea": "Saint Philothea of Thrace, Protectress of Romania",
-        "bede": "Venerable Bede, the Church Historia"
+        "philothea": "Sf Mc Filoteea de la Curtea de Argeș",
+        "bede": "Sf Cuv Beda"
       },
       "philothea": [
         "Sfânta Muceniță Filoteea s-a născut la începutul secolului al XIII-lea în apropiere de orașul Târnovo (astăzi, Veliko Tărnovo, Bulgaria), capitala Țaratului Bulgar, într-o familie de țărani. A fost crescută în dreapta credință și evlavie de mama sa, care a murit când Filoteea era încă mică. Copila postea, asculta Scripturile, învăța să-și păzească neîntinată fecioria, iar mai presus de toate era foarte milostivă.",
@@ -67,37 +71,39 @@
       }
     },
     "services": {
-      "mainTitle": "Upcoming Services",
-      "mainDescription": "Our priest, Father Ioan, only serves approximately once a month at present. The next service is usually announced a few weeks in advance.",
+      "mainTitle": "Programul liturgic",
+      "mainDescription": "Deși momentan nu avem preot paroh, din binecuvântarea Înalt Preasfințitului Părinte Mitropolit Iosif, Pr Ioan Pop vine de la Londra aproximativ o dată pe lună pentru a sluji Sf Liturghie la care se adaugă, după posibilități, slujbe de pomenire a adormiților, spovedanie, botezuri, cununii, sfeștanii. Programul liturgic este în general anunțat cu câteva săptămâni înainte.",
       "upcoming": "Servicii viitoare",
       "date": "Data",
       "fastingCode": "Cod de post",
       "description": "Descriere",
       "bibleReading": "Citirea Bibliei",
-      "upcomingTableDesc": "O listă de servicii viitoare"
+      "upcomingTableDesc": "Programul liturgic"
     },
     "contact": {
-      "contactTitle": "Contact us",
-      "contactDesc": "For confessions, baptisms, weddings, funerals, or to be added to the parish whatsapp group, please contact Fr Ioan Pop",
-      "quote": "“For the Romanians in the diaspora and all those in need, church is the first port of call. It provides spiritual, emotional and even material support. It is the place where we take in the comfort of the services and holy sacraments, even if for some people this happens only once a year, at Easter. Church is the ship that takes us to the safe shore, drifting free from danger over the troubled waters of nowaday’s chaotic world.” (Fr Liviu Barbu, the founder and our first parish priest).",
+      "contactTitle": "Contact",
+      "contactDesc": "Pentru spovedanie, botezuri, cununii, înmormântări, sfeștenii, sau pentru a fi adăugat la grupul parohial de whatsapp, vă rugăm să îl contactați pe Pr Ioan Pop.",
+      "quote": "“Biserica este primul popas, sprijin spiritual, emoţional şi chiar material pentru românii din diaspora. Este locul unde sorbim dulceaţa slujbelor, chiar dacă pentru unii se întâmplă o dată în an, de Înviere. Biserica este corabia care ne scoate la liman, plutind peste marea învolburată a lumii haotice.” (Pr Dr Liviu Barbu, fondatorul și primul nostru preot paroh).",
       "tel": "+44 7980 022008",
       "email": "ovidiuioan_pop@yahoo.co.uk",
       "visitTitle": "Visit us",
-      "visitDesc": "The church is open only during the times announced on the <Link href='/ro/services' class='underline text-amber-600'>services page</Link>. Everybody is welcome."
+      "visitDesc": "Biserica este deschisă doar între orele anunțate în program. Vă așteptăm cu drag să ne vizitați."
     },
     "donate": {
-      "title": "Donează",
+      "title": "Donații",
       "text": [
         "Vă suntem mereu recunoscători pentru că ne sunteți aproape. Parohia noastră se bazează pe sprijinul și dragostea dumneavoastră.",
         "Suntem în curs de a vă pune la dispozitie pe acest website o modalitate de a face donații on line."
-      ]
+      ],
+      "image": "https://utfs.io/f/b34bafbb-5f87-4ca1-a072-3c465ae3f771-j5o3jg.jpg"
     },
     "sundaySchool": {
-      "title": "Sunday School",
+      "title": "Școala de duminică",
       "text": "Școala de duminică (pentru copiii de la 4 ani în sus) se ține imediat după Sf Liturghie în duminicile când avem slujbă la biserică."
     },
     "news": {
-      "read": "Citit"
+      "title": "Știri",
+      "read": "Citiți mai departe"
     }
   }
 }
