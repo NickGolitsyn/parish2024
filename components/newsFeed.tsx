@@ -78,9 +78,9 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
               width={500}
               height={500}
               alt={'News image'}
-              className='rounded-sm h-40 w-auto'
+              className='rounded-sm h-48 sm:h-32 w-auto'
             />
-            <div className='flex flex-col gap-2'>
+            <div className='flex flex-col gap-2 w-full'>
               <h1 className='font-semibold sm:text-xl'>{e?.title[lang]}</h1>
               {/* <p className='text-sm'>
                 {e?.content[lang] && toPlainText(e.content[lang]).split(' ').slice(0, 50).join(' ')}...
@@ -89,7 +89,7 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
                 {e?.content[lang] &&
                   capitalizeFirstLetterOfSentences(toPlainText(e.content[lang]))
                     .split(' ')
-                    .slice(0, 70)
+                    .slice(0, 10)
                     .join(' ')}...
               </p>
               <Button asChild className='w-min'>

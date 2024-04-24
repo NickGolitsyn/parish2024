@@ -13,9 +13,19 @@
   },
   "page": {
     "home": {
-      "title": "<i>Welcome to the</i><br/>Romanian Parish of<br/>Holy Martyr Philothea<sm:br/>& Saint Bede the Venerable",
+      "title": [
+        "Welcome to the",
+        "Romanian Parish of",
+        "Holy Martyr Philothea", 
+        "& Saint Bede the Venerable"
+      ],
       "subtitle": "An Orthodox parish serving<br/>Norwich & East Anglia",
-      "description": "On this website you can find out <Link class=\"underline text-amber-600\" href='/en/about'>about us</Link>, <Link class=\"underline text-amber-600\" href='/en/contact#visit'>where</Link> we worship, <Link class=\"underline text-amber-600\" href='/en/services'>when</Link> our services are, how to <Link class=\"underline text-amber-600\" href='/en/contact'>contact</Link> us and how to <Link class=\"underline text-amber-600\" href='/en/donate'>support</Link> us."
+      "description": "On this website you can find out <Link class=\"underline text-amber-600\" href='/en/about'>about us</Link>, <Link class=\"underline text-amber-600\" href='/en/contact#visit'>where</Link> we worship, <Link class=\"underline text-amber-600\" href='/en/services'>when</Link> our services are, how to <Link class=\"underline text-amber-600\" href='/en/contact'>contact</Link> us and how to <Link class=\"underline text-amber-600\" href='/en/donate'>support</Link> us.",
+      "poster": [
+        "This year we celebrate our parish feast dedicated to St Bede the Venerable, with a play about St Bede and other Anglo Saxon saints, written and performed by storyteller Anna Conomos:",
+        "THE ANGLO-SAXON SAINTS: KINGS, QUEENS AND COWHERDS.",
+        "On the 2nd of June, at 1.30, after the service."
+      ]
     },
     "about": {
       "parish": "About Our Parish",
@@ -72,13 +82,22 @@
     "contact": {
       "contactTitle": "Contact us",
       "contactDesc": "For confessions, baptisms, weddings, funerals, or to be added to the parish whatsapp group, please contact Fr Ioan Pop.",
+      "quote": "“For the Romanians in the diaspora and all those in need, church is the first port of call. It provides spiritual, emotional and even material support. It is the place where we take in the comfort of the services and holy sacraments, even if for some people this happens only once a year, at Easter. Church is the ship that takes us to the safe shore, drifting free from danger over the troubled waters of nowaday’s chaotic world.” (Fr Liviu Barbu, the founder and our first parish priest).",
       "tel": "+44 7980 022008",
       "email": "ovidiuioan_pop@yahoo.co.uk",
       "visitTitle": "Visit us",
       "visitDesc": "The church is open only during the times announced on the <Link href='/en/services' class='underline text-amber-600'>services page</Link>. Everybody is welcome."
     },
     "donate": {
-      "title": "Donate"
+      "title": "Donate",
+      "text": [
+        "We are always grateful for your support. The parish relies completely on donations.",
+        "A means of donating via this website will be available shortly."
+      ]
+    },
+    "sundaySchool": {
+      "title": "Sunday School",
+      "text": "Sunday School (ages 4+) takes place straight after the Holy Liturgy on the Sundays when we have a service."
     },
     "news": {
       "read": "Read"

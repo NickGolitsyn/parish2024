@@ -11,10 +11,14 @@
 - [x] Change call to action from paragraph to cards
 - [x] Update welcome text
 - [x] Align text to left and realign email & tel on contact page
-- [ ] Fix Italic parts of welcome message
+- [x] Add text and image to donate page
+- [x] Add text to sunday school page
+- [x] Fix Italic parts of welcome message
+- [x] Repalce placeholder text on Donate page
+- [ ] Fix map
+- [ ] Add facebook button
 - [ ] Add loading state for carousel
 - [ ] Text translation
 - [ ] Close gallery down
-- [ ] Repalce placeholder text on Donate page
 - [ ] Add Donate section to the bottom of the page
 - [ ] Change news card style

@@ -15,8 +15,9 @@ export default async function page({
   const { page } = await getDictionary(lang)
   return (
     <main className="pt-36 mb-20 px-5 max-w-screen-md mx-auto">
-      <h1 className='text-2xl font-bold mb-2'>Sunday School</h1>
-      <div>
+      <h1 className='text-2xl font-bold mb-2'>{page.sundaySchool.title}</h1>
+      <p>{page.sundaySchool.text}</p>
+      <div className='mt-5'>
         <SundaySchoolFeed lang={lang} words={page.news} />
       </div>
     </main>
