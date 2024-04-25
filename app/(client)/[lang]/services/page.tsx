@@ -9,9 +9,17 @@ import { Services } from '@/typings';
 import { groq } from 'next-sanity';
 import { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Services',
-};
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const { lang } = params;
+  const title = {
+    en: 'Services',
+    ro: 'Programul slujbelor'
+  };
+
+  return {
+    title: lang === 'ro' ? title.ro : title.en
+  };
+}
 
 const query = groq`*[_type == 'services']`;
 

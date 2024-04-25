@@ -7,9 +7,17 @@ import Image from 'next/image';
 import Link from 'next/link'
 import React from 'react';
 
-export const metadata: Metadata = {
-  title: "Donate",
-};
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const { lang } = params;
+  const title = {
+    en: 'Donate',
+    ro: 'Donații'
+  };
+
+  return {
+    title: lang === 'ro' ? title.ro : title.en
+  };
+}
 
 export default async function page({
   params: { lang }

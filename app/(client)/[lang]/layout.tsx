@@ -9,8 +9,8 @@ import { Analytics } from '@vercel/analytics/react';
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Parish",
-  description: "Parish website",
+  title: "Parish | Home page",
+  description: "Romanian Parish of Holy Martyr Philothea & Saint Bede the Venerable | Discover the Romanian Christian Orthodox parish in Gillingham, Norfolk, serving the Romanian community with spiritual guidance, services, and events. Learn more about our parish and how to get involved.",
 };
 
 export async function generateStaticParams() {

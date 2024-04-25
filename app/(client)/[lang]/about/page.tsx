@@ -1,27 +1,13 @@
 import { Locale } from '@/i18n.config';
 import { getDictionary } from '@/lib/dictionary';
-import { Metadata, ResolvingMetadata } from 'next';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import philothea from '@/public/philothea.jpg';
 import bede from '@/public/bede.jpg';
 import Link from 'next/link';
 import logo from '@/public/logo.jpg';
 
-// export const metadata: Metadata = {
-//   title: "About",
-// };
-// export async function generateMetadata({ params: { lang } } : { params: { lang: Locale} }) {
-//   return {
-//     // if(lang = 'ro') {
-//     //   title: 'A',
-//     // } else {
-//     //   title: 'About'
-//     // }
-//     title: 'About'
-//   }
-// }
-
-export async function generateMetadata({ params }: any, parent: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = params;
   const title = {
     en: 'About',

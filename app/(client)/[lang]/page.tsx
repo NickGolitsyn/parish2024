@@ -4,7 +4,6 @@ import { getDictionary } from "@/lib/dictionary";
 import HomepageCarousel from "@/components/homepageCarousel";
 import cross from "@/public/cross.png"
 import NewsFeed from "@/components/newsFeed";
-import Card from "@/components/card";
 import React from "react";
 import Link from "next/link";
 
@@ -18,15 +17,15 @@ export default async function Home({
   return (
     <main className="flex min-h-screen flex-col items-center justify-between pt-36 mx-auto max-w-2xl">
       <section className="text-center pb-10">
-        <div className="font-semibold sm:text-xl flex flex-col text-base px-5 text-nowrap">
-          <span className="italic text-sm sm:text-base">{page.home.title[0]}</span>
+        <h1 className="font-semibold text-2xl md:text-3xl flex flex-col px-5 text-nowrap">
+          <span className="italic text-lg md:text-xl">{page.home.title[0]}</span>
           <span>{page.home.title[1]}</span>
           <div className="flex flex-col sm:flex-row">
             <span>{page.home.title[2]}&nbsp;</span>
             <span>{page.home.title[3]}</span>
           </div>
-        </div>
-        <h2 className="font-semibold text-xs sm:text-base pt-5 flex flex-col">
+        </h1>
+        <h2 className="font-semibold text-base pt-3 flex flex-col">
           {page.home.subtitle.map((text, index) => (
             <span key={index}>
               {text}

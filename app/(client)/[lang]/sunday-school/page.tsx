@@ -4,9 +4,17 @@ import { getDictionary } from '@/lib/dictionary'
 import { Metadata } from 'next';
 import Image from 'next/image';
 
-export const metadata: Metadata = {
-  title: "Sunday School",
-};
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const { lang } = params;
+  const title = {
+    en: 'Sunday school',
+    ro: 'Școala de duminică'
+  };
+
+  return {
+    title: lang === 'ro' ? title.ro : title.en
+  };
+}
 
 export default async function page({
   params: { lang }
