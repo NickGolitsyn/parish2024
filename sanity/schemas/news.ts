@@ -32,24 +32,24 @@ export default defineType({
         source: 'title.en'
       }
     }),
-    // defineField({
-    //   name: 'description',
-    //   title: 'Description',
-    //   validation: (Rule) => Rule.required(),
-    //   type: 'object', 
-    //   fields: [
-    //     {
-    //       title: 'English',
-    //       name: 'en',
-    //       type: 'text'
-    //     },
-    //     {
-    //       title: 'Romanian',
-    //       name: 'ro',
-    //       type: 'text'
-    //     }
-    //   ]
-    // }),
+    defineField({
+      name: 'description',
+      title: 'Description',
+      validation: (Rule) => Rule.required(),
+      type: 'object', 
+      fields: [
+        {
+          title: 'English',
+          name: 'en',
+          type: 'text'
+        },
+        {
+          title: 'Romanian',
+          name: 'ro',
+          type: 'text'
+        }
+      ]
+    }),
     defineField({
       name: 'content',
       title: 'Content',
@@ -100,6 +100,12 @@ export default defineType({
         }
       ]
     }),
+    defineField({
+      name: 'button',
+      title: 'Read button',
+      type: 'boolean',
+      validation: (Rule) => Rule.required(),
+    })
   ],
   preview: {
     select: {

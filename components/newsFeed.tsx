@@ -78,23 +78,28 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
               width={500}
               height={500}
               alt={'News image'}
-              className='rounded-sm h-48 sm:h-32 w-auto'
+              className="h-auto sm:h-64 w-2/3 mx-auto sm:w-auto rounded-sm"
             />
             <div className='flex flex-col gap-2 w-full'>
               <h1 className='font-semibold sm:text-xl'>{e?.title[lang]}</h1>
               {/* <p className='text-sm'>
                 {e?.content[lang] && toPlainText(e.content[lang]).split(' ').slice(0, 50).join(' ')}...
               </p> */}
-              <p className='text-sm'>
+              {/* <p className='text-sm'>
                 {e?.content[lang] &&
                   capitalizeFirstLetterOfSentences(toPlainText(e.content[lang]))
                     .split(' ')
                     .slice(0, 10)
                     .join(' ')}...
+              </p> */}
+              <p className='text-sm'>
+                {e?.description[lang]}
               </p>
-              <Button asChild className='w-min'>
-                <Link href={`${lang}/news/${e?.slug.current}`}>{words.read}</Link>
-              </Button>
+              {e?.button && (
+                <Button asChild className='w-min'>
+                  <Link href={`${lang}/news/${e?.slug.current}`}>{words.read}</Link>
+                </Button>
+              )}
             </div>
           </div>
         ))}

@@ -2,6 +2,7 @@ import SundaySchoolFeed from '@/components/sundaySchoolFeed';
 import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
 import { Metadata } from 'next';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "Sunday School",
@@ -19,6 +20,15 @@ export default async function page({
       <p>{page.sundaySchool.text}</p>
       <div className='mt-5'>
         <SundaySchoolFeed lang={lang} words={page.news} />
+      </div>
+      <div className='flex justify-center'>
+        <Image 
+          src={'https://utfs.io/f/08848e9e-2d90-4870-945c-4bc24eb15f14-wkc33w.jpg'} 
+          alt={'Sunday School'} 
+          width={'100'}
+          height={'100'}
+          className="max-h-64 h-80 sm:max-h-full w-auto rounded-sm mt-5"
+        />
       </div>
     </main>
   )

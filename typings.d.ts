@@ -47,8 +47,10 @@ interface SanityGallery extends SanityBase {
 interface News extends SanityBase {
   _type: "news";
   title: { en: string; ro: string };
+  description: { en: string; ro: string };
   content: { en: block; ro: block };
-  imagedata: { image: Image; alt: { en: string; ro: string }; }
+  imagedata: { image: Image; alt: { en: string; ro: string }; };
+  button: Boolean;
 }
 
 interface Donate extends SanityBase {

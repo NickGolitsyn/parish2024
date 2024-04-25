@@ -45,12 +45,11 @@ export default async function page({
           <h1 className='text-2xl font-bold mb-2'>{page.about.parish}</h1>
           <div className='space-y-2'>
             <p className='text-sm sm:text-base'>{page.about.parishText}</p>
-            <p className='text-sm sm:text-base'>{page.contact.quote}</p>
           </div>
         </div>
         <div className='flex flex-col items-center mt-10'>
           <h1 className='text-2xl font-bold mb-2'>{page.about.saints}</h1>
-          <div>
+          <div className='mt-2 mb-10'>
             <Image 
               src={logo} 
               alt={'Icon of St Philothea & Bede the Venerable'}

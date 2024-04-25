@@ -79,7 +79,7 @@ export default async function Home({
       <section>
         <h1 className='text-2xl font-bold mb-2 mx-5'>{page.news.title}</h1>
         <NewsFeed lang={lang} words={page.news} />
-        <div className="flex flex-col-reverse sm:flex-row gap-2 mx-5 mb-5">
+        {/* <div className="flex flex-col-reverse sm:flex-row gap-2 mx-5 mb-5">
           <Image 
             src={"https://utfs.io/f/b2fd5163-c8dd-42a1-86c3-aa73ac2ea971-z87e25.jpg"} 
             alt={"Poster"} 
@@ -92,7 +92,7 @@ export default async function Home({
               <p className="text-sm sm:text-base" key={index}>{text}</p>
             ))}
           </div>
-        </div>
+        </div> */}
       </section>
       <section className="my-5">
         <Link href={`${lang}/donate`}>

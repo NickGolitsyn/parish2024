@@ -20,7 +20,7 @@ export default async function page({
     <main className="pt-36 mb-10 px-5 max-w-screen-md mx-auto flex flex-col items-center">
       <div className='flex flex-col items-center w-full'>
         <div>
-          <h1 className='text-2xl text-center font-bold mb-2'>Contact us</h1>
+          <h1 className='text-2xl text-center font-bold mb-2'>{page.contact.contactTitle}</h1>
           <div className='flex flex-col gap-3'>
             <p className='text-sm sm:text-base max-w-lg text-left'>{page.contact.contactDesc}</p>
             <p className='text-sm sm:text-base max-w-lg text-left'>{page.contact.quote}</p>
@@ -39,7 +39,7 @@ export default async function page({
       </div>
       <div className='flex flex-col items-center mt-10 w-full justify-between' id="visit">
         <div>
-          <h1 className='text-2xl font-bold mb-2 text-center'>Visit us</h1>
+          <h1 className='text-2xl font-bold mb-2 text-center'>{page.contact.visitTitle}</h1>
           <p 
             className='text-sm sm:text-base text-left max-w-lg' 
             dangerouslySetInnerHTML={{

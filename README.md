@@ -19,10 +19,9 @@
 - [x] Add icon to about page
 - [x] Text translation
 - [x] Add Donate section to the bottom of the page
+- [x] Add description for news in Schema
 - [ ] Localise page titles
 - [ ] Terms and conditions & Privacy Policy
-- [ ] Add description for news in Schema
 - [ ] Add facebook button
 - [ ] Add loading state for carousel
 - [ ] Close gallery down
-- [ ] Change news card style
