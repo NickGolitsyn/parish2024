@@ -34,7 +34,7 @@ export default function Page({ params: { lang, id } }: { params: { lang: Locale,
   return (
     <main className="pt-36 mb-20 px-5 max-w-screen-md mx-auto">
       <Image 
-        src={urlForImage(news?.imagedata.image.asset._ref)} 
+        src={urlForImage(news?.imagedata.image[lang].asset._ref)} 
         width={500}
         height={500}
         alt={'News image'}
