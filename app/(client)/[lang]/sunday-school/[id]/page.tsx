@@ -7,11 +7,6 @@ import { groq } from 'next-sanity'
 import { useEffect, useState } from 'react'
 import { PortableText } from '@portabletext/react'
 import { urlForImage } from '@/sanity/lib/image'
-import { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: "Sunday school",
-};
 
 export default function Page({ params: { lang, id } }: { params: { lang: Locale, id: String } }) {
   const query = groq`*[_type == "sundayschool" && slug.current == "${id}"][0]`
