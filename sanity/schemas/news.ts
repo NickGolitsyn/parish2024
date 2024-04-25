@@ -1,3 +1,4 @@
+import { title } from 'process';
 import { defineType, defineField } from 'sanity';
 
 export default defineType({
@@ -81,7 +82,19 @@ export default defineType({
         {
           name: 'image',
           title: 'Image',
-          type: 'image', 
+          type: 'object',
+          fields: [
+            {
+              title: 'English',
+              name: 'en',
+              type: 'image',
+            },
+            {
+              title: 'Romanian',
+              name: 'ro',
+              type: 'image',
+            }
+          ]
         },
         {
           name: "alt",
