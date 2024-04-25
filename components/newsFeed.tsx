@@ -18,21 +18,6 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
   const [news, setNews] = useState<News[]>([]);
   const [loading, setLoading] = useState(true);
 
-  function capitalizeFirstLetterOfSentences(text: String) {
-    const sentences = text.split(/[.!?]\s+/);
-    const capitalizedSentences = sentences.map((sentence) => {
-      const words = sentence.split(' ');
-      const capitalizedWords = words.map((word, index) => {
-        if (index === 0) {
-          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-        }
-        return word.toLowerCase();
-      });
-      return capitalizedWords.join(' ');
-    });
-    return capitalizedSentences.join('. ');
-  }
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -83,11 +68,11 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
             />
             <div className='flex flex-col gap-2 w-full'>
               <h1 className='hidden font-semibold sm:block text-xl'>{e?.title[lang]}</h1>
-              <div>
+              <div className='text-center sm:text-left'>
                 <PortableText value={e?.description[lang]} />
               </div>
               {e?.button && (
-                <Button asChild className='w-min'>
+                <Button asChild className='w-min mx-auto sm:mx-0'>
                   <Link href={`${lang}/news/${e?.slug.current}`}>{words.read}</Link>
                 </Button>
               )}
