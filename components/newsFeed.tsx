@@ -8,7 +8,7 @@ import { client } from '@/sanity/lib/client';
 import { urlForImage } from '@/sanity/lib/image';
 import Link from 'next/link';
 import { Locale } from "@/i18n.config";
-import { toPlainText } from '@portabletext/react';
+import { PortableText, toPlainText } from '@portabletext/react';
 
 const query = groq`*[_type == 'news']`;
 
@@ -55,7 +55,7 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
   }
 
   const renderSkeleton = () => (
-    <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-x-4 rounded-sm border py-3 px-5 animate-pulse">
+    <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rounded-sm border py-3 px-5 animate-pulse">
       <div className="bg-gray-300 rounded-sm h-40 w-40"></div>
       <div>
         <div className="h-6 bg-gray-300 rounded w-64 mb-4"></div>
@@ -70,9 +70,10 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
   );
   return (
     <section className='mx-5 mb-16'>
-      <div className='space-y-5'>
+      <div className='space-y-5 sm:space-y-10'>
         {loading ? renderSkeleton() : news.slice(0, visibleCounter).map((e:any) => (
-          <div key={e?._id} className='flex flex-col sm:flex-row items-center space-y-4 sm:space-x-4 rounded-sm border py-3 px-5'>
+          <div key={e?._id} className='flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rounded-sm border py-3 px-5'>
+            <h1 className='font-semibold text-xl text-center sm:hidden'>{e?.title[lang]}</h1>
             <Image 
               src={urlForImage(e?.imagedata.image.asset._ref)} 
               width={500}
@@ -81,20 +82,10 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
               className="h-auto sm:h-64 w-2/3 mx-auto sm:w-auto rounded-sm"
             />
             <div className='flex flex-col gap-2 w-full'>
-              <h1 className='font-semibold sm:text-xl'>{e?.title[lang]}</h1>
-              {/* <p className='text-sm'>
-                {e?.content[lang] && toPlainText(e.content[lang]).split(' ').slice(0, 50).join(' ')}...
-              </p> */}
-              {/* <p className='text-sm'>
-                {e?.content[lang] &&
-                  capitalizeFirstLetterOfSentences(toPlainText(e.content[lang]))
-                    .split(' ')
-                    .slice(0, 10)
-                    .join(' ')}...
-              </p> */}
-              <p className='text-sm'>
-                {e?.description[lang]}
-              </p>
+              <h1 className='hidden font-semibold sm:block text-xl'>{e?.title[lang]}</h1>
+              <div>
+                <PortableText value={e?.description[lang]} />
+              </div>
               {e?.button && (
                 <Button asChild className='w-min'>
                   <Link href={`${lang}/news/${e?.slug.current}`}>{words.read}</Link>

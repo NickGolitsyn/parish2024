@@ -15,8 +15,8 @@
     "home": {
       "title": [
         "Bine ați venit în",
-        "parohia românească", 
-        "'Sfânta Muceniță Filotea",
+        "Parohia Ortodoxă Română", 
+        "'Sfânta Muceniță Filoteea",
         "și Sfântul Cuvios Beda'"
       ],
       "subtitle": [
@@ -32,9 +32,9 @@
       ]
     },
     "about": {
-      "parish": "Despre Parohia Noastră",
+      "parish": "Despre parohia noastră",
       "parishText": "Aparținem Mitropoliei Ortodoxe Române a Europei Occidentale şi Meridionale (parte a Patriarhiei Române), cu sediul la Paris, condusă de Înalt Preasfinția Sa, Mitropolitul Iosif. Parohia noastră a fost inaugurată pe 19 decembrie 2010.",
-      "saints": "Despre Sfinții Noștri Ocrotitori",
+      "saints": "Despre sfinții noștri ocrotitori",
       "saintsName": {
         "philothea": "Sf Mc Filoteea de la Curtea de Argeș",
         "bede": "Sf Cuv Beda"

@@ -77,7 +77,7 @@ export default async function Home({
         </div>
       </section>
       <section>
-        <h1 className='text-2xl font-bold mb-2 mx-5'>{page.news.title}</h1>
+        <h1 className='text-2xl font-bold mb-4 mx-5'>{page.news.title}</h1>
         <NewsFeed lang={lang} words={page.news} />
         {/* <div className="flex flex-col-reverse sm:flex-row gap-2 mx-5 mb-5">
           <Image 

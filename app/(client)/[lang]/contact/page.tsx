@@ -22,8 +22,8 @@ export default async function page({
         <div>
           <h1 className='text-2xl text-center font-bold mb-2'>{page.contact.contactTitle}</h1>
           <div className='flex flex-col gap-3'>
-            <p className='text-sm sm:text-base max-w-lg text-left'>{page.contact.contactDesc}</p>
-            <p className='text-sm sm:text-base max-w-lg text-left'>{page.contact.quote}</p>
+            <p className='text-sm sm:text-base max-w-lg text-center'>{page.contact.contactDesc}</p>
+            <p className='text-sm sm:text-base max-w-lg text-center'>{page.contact.quote}</p>
           </div>
         </div>
         <div className='flex flex-col sm:flex-row gap-10 mt-5'>
@@ -41,7 +41,7 @@ export default async function page({
         <div>
           <h1 className='text-2xl font-bold mb-2 text-center'>{page.contact.visitTitle}</h1>
           <p 
-            className='text-sm sm:text-base text-left max-w-lg' 
+            className='text-sm sm:text-base text-center max-w-lg' 
             dangerouslySetInnerHTML={{
               __html: page.contact.visitDesc.replace(/<Link/g, '<a').replace(/<\/Link>/g, '</a>'),
             }} 

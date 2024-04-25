@@ -41,12 +41,14 @@ export default defineType({
         {
           title: 'English',
           name: 'en',
-          type: 'text'
+          type: 'array', 
+          of: [{type: 'block'}]
         },
         {
           title: 'Romanian',
           name: 'ro',
-          type: 'text'
+          type: 'array', 
+          of: [{type: 'block'}]
         }
       ]
     }),

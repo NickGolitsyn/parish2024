@@ -27,9 +27,21 @@ export default async function page({ params: { lang } }: { params: { lang: Local
     .filter((item: Services) => new Date(item.date as string) >= today)
     .sort((a: Services, b: Services) => new Date(a.date as string).getTime() - new Date(b.date as string).getTime());
 
-  const pastServices = services
-    .filter((item: Services) => new Date(item.date as string) < today)
-    .sort((a: Services, b: Services) => new Date(b.date as string).getTime() - new Date(a.date as string).getTime());
+  const formatDate = (dateString: string, format: string) => {
+    const date = new Date(dateString);
+    const options: Intl.DateTimeFormatOptions = {};
+
+    if (format === 'D MMM') {
+      options.day = 'numeric';
+      options.month = 'short';
+    } else if (format === 'dddd D MMM') {
+      options.weekday = 'long';
+      options.day = 'numeric';
+      options.month = 'short';
+    }
+
+    return new Intl.DateTimeFormat('en-UK', options).format(date);
+  };
 
   // Helper function to convert description to link if it has square brackets
   const convertDescriptionToLink = (description: string) => {
@@ -59,19 +71,15 @@ export default async function page({ params: { lang } }: { params: { lang: Local
         <TableCaption>{page.services.upcomingTableDesc}</TableCaption>
         <TableHeader>
           <TableRow>
-            <TableHead className="w-[100px]">{page.services.date}</TableHead>
-            {/* <TableHead className="text-nowrap w-10">{page.services.fastingCode}</TableHead> */}
+            <TableHead className="w-[150px]">{page.services.date}</TableHead>
             <TableHead>{page.services.description}</TableHead>
-            {/* <TableHead className="text-nowrap w-[100px]">{page.services.bibleReading}</TableHead> */}
           </TableRow>
         </TableHeader>
         <TableBody>
           {upcomingServices.map((item: Services) => (
             <TableRow key={item._id}>
-              <TableCell className="font-medium">{item.date}</TableCell>
-              {/* <TableCell>{item.fastingCode}</TableCell> */}
+              <TableCell className="font-medium">{formatDate(item.date as string, 'dddd D MMM')}</TableCell>
               <TableCell>{convertDescriptionToLink(item.description[lang])}</TableCell>
-              {/* <TableCell>{item.bibleReadings[lang]}</TableCell> */}
             </TableRow>
           ))}
         </TableBody>

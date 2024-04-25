@@ -46,8 +46,10 @@ export default function GalleryGrid({ lang }: { lang: any }) {
                 key={item?._id}
                 original={urlForImage(item?.image.asset._ref)}
                 thumbnail={urlForImage(item?.image.asset._ref)}
-                width={String(item?.image.width)}
-                height={String(item?.image.height)}
+                // width={`${String(item?.image.width)}px`}
+                // height={`${String(item?.image.height)}px`}
+                width={item?.width}
+                height={item?.height}
               >
                 {({ ref, open }) => (
                   <Image 
@@ -55,7 +57,7 @@ export default function GalleryGrid({ lang }: { lang: any }) {
                     alt={item?.alt[lang]}
                     width={'500'}
                     height={'500'}
-                    className="aspect-video w-full object-cover"
+                    className="aspect-[16/12] w-full object-cover rounded-sm"
                     ref={ref} 
                     onClick={open}
                   />
