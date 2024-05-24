@@ -8,10 +8,44 @@ import { Analytics } from '@vercel/analytics/react';
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Parish | Home page",
-  description: "Romanian Parish of Holy Martyr Philothea & Saint Bede the Venerable | Discover the Romanian Christian Orthodox parish in Gillingham, Norfolk, serving the Romanian community with spiritual guidance, services, and events. Learn more about our parish and how to get involved.",
-};
+// export const metadata: Metadata = {
+//   title: "Parish | Home page",
+//   description: "Romanian Parish of Holy Martyr Philothea & Saint Bede the Venerable | Discover the Romanian Christian Orthodox parish in Gillingham, Norfolk, serving the Romanian community with spiritual guidance, services, and events. Learn more about our parish and how to get involved.",
+//   keywords: ["",],
+//   alternates: {
+//     canonical: 'https://parohianorwich.org/en',
+//     languages: {
+//       'en': 'https://www.parohianorwich.org/en',
+//       'ro': 'https://www.parohianorwich.org/ro',
+//     },
+//   },
+// };
+
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const { lang } = params;
+  const title = {
+    en: 'Home',
+    ro: 'Acasă'
+  };
+  const description = {
+    en: 'Romanian Parish of Holy Martyr Philothea & Saint Bede the Venerable | Discover the Romanian Christian Orthodox parish in Gillingham, Norfolk, serving the Romanian community with spiritual guidance, services, and events. Learn more about our parish and how to get involved.',
+    ro: 'Biserica românească Romanian ortodoxă Christian Orthodox church norwich beccles norfolk suffolk east anglia NR parohie parohia parish Saint Bede the Venerable Sfântul Cuv Beda Sfânta Muceniță Filoteea Filofteea Holy Martyr Philothea services slujbe preot român comunitate românească'
+  };
+  const keywords = ["Romanian orthodox church", "Biserica românească Romanian ortodoxă", "Christian Orthodox church", "Norwich", "Beccles", "Norfolk", "Suffolk", "East Anglia", "NR parohie", "parohia", "parish", "Saint Bede the Venerable", "Sfântul Cuv Beda", "Sfânta Muceniță Filoteea", "Sfânta Muceniță Filofteea", "Holy Martyr Philothea", "services", "slujbe preot român comunitate românească"]
+
+  return {
+    title: lang === 'ro' ? title.ro : title.en,
+    description: lang === 'ro' ? description.ro : description.en,
+    keywords,
+    alternates: {
+      canonical: 'https://parohianorwich.org/en',
+      languages: {
+        'en': 'https://www.parohianorwich.org/en',
+        'ro': 'https://www.parohianorwich.org/ro',
+      },
+    },
+  };
+}
 
 export async function generateStaticParams() {
   return i18n.locales.map(locale => ({ lang: locale }))

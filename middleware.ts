@@ -21,7 +21,7 @@ function getLocale(request: NextRequest): string | undefined {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
-  if (pathname.startsWith('/admin') || pathname.startsWith('/sitemap.xml')) {
+  if (pathname.startsWith('/admin') || pathname.startsWith('/sitemap.xml') || pathname.startsWith('/robots.txt')) {
     return null; 
   }
 
