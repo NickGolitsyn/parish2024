@@ -20,8 +20,13 @@
 - [x] Text translation
 - [x] Add Donate section to the bottom of the page
 - [x] Add description for news in Schema
-- [ ] Localise page titles
+- [x] Localise page titles
+- [x] Add facebook button on mobile
 - [ ] Terms and conditions & Privacy Policy
-- [ ] Add facebook button
+- [ ] Add facebook button on desktop
 - [ ] Add loading state for carousel
 - [ ] Close gallery down
+- [ ] Improve titles
+- [ ] Make description shorter
+- [ ] Only keep one h1
+- [ ] Add more text to home page

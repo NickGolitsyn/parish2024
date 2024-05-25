@@ -32,8 +32,6 @@ interface Services extends SanityBase {
   _type: "services";
   date: date;
   description: { en: string; ro: string };
-  bibleReadings: { en: string; ro: string };
-  fastingCode: string;
 }
 
 interface SanityGallery extends SanityBase {

@@ -45,10 +45,10 @@ export default async function page({ params: { lang } }: { params: { lang: Local
     } else if (format === 'dddd D MMM') {
       options.weekday = 'long';
       options.day = 'numeric';
-      options.month = 'short';
+      options.month = 'long';
     }
 
-    return new Intl.DateTimeFormat('en-UK', options).format(date);
+    return new Intl.DateTimeFormat(lang === 'ro' ? 'ro' : 'en-UK', options).format(date);
   };
 
   // Helper function to convert description to link if it has square brackets
@@ -86,7 +86,7 @@ export default async function page({ params: { lang } }: { params: { lang: Local
         <TableBody>
           {upcomingServices.map((item: Services) => (
             <TableRow key={item._id}>
-              <TableCell className="font-medium">{formatDate(item.date as string, 'dddd D MMM')}</TableCell>
+              <TableCell className="font-medium first-letter:capitalize">{formatDate(item.date as string, 'dddd D MMM')}</TableCell>
               <TableCell>{convertDescriptionToLink(item.description[lang])}</TableCell>
             </TableRow>
           ))}
