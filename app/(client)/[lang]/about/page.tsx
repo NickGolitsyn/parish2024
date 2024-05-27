@@ -41,7 +41,7 @@ export default async function page({
           </div>
         </div>
         <div className='flex flex-col items-center mt-10'>
-          <h1 className='text-2xl font-bold mb-2'>{page.about.saints}</h1>
+          <h3 className='text-2xl font-bold mb-2'>{page.about.saints}</h3>
           <div className='mt-2 mb-10'>
             <Image 
               src={logo} 

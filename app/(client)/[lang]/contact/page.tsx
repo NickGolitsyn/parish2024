@@ -46,7 +46,7 @@ export default async function page({
       </div>
       <div className='flex flex-col items-center mt-10 w-full justify-between' id="visit">
         <div>
-          <h1 className='text-2xl font-bold mb-2 text-center'>{page.contact.visitTitle}</h1>
+          <h2 className='text-2xl font-bold mb-2 text-center'>{page.contact.visitTitle}</h2>
           <p 
             className='text-sm sm:text-base text-center max-w-lg' 
             dangerouslySetInnerHTML={{
