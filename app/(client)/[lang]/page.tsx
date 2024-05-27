@@ -18,7 +18,7 @@ export default async function Home({
     <main className="flex min-h-screen flex-col items-center justify-between pt-36 mx-auto max-w-2xl">
       <section className="text-center pb-10">
         <h1 className="font-semibold text-2xl md:text-3xl flex flex-col px-5 text-nowrap">
-          <span className="italic text-lg md:text-xl">{page.home.title[0]}</span>
+          <span className="italic text-lg md:text-xl">{page.home.title[0]}&nbsp;</span>
           <span>{page.home.title[1]}</span>
           <div className="flex flex-col sm:flex-row">
             <span>{page.home.title[2]}&nbsp;</span>
