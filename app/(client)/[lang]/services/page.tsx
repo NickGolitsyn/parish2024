@@ -17,7 +17,14 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   };
 
   return {
-    title: lang === 'ro' ? title.ro : title.en
+    title: lang === 'ro' ? title.ro : title.en,
+    alternates: {
+      canonical: 'https://www.parohianorwich.org/en/services',
+      languages: {
+        'en': 'https://www.parohianorwich.org/en/services',
+        'ro': 'https://www.parohianorwich.org/ro/services',
+      },
+    },
   };
 }
 

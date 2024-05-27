@@ -24,8 +24,8 @@ const playfair = Playfair_Display({ subsets: ["latin"] });
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = params;
   const title = {
-    en: 'Parohia Norwich | Home',
-    ro: 'Parohia Norwich | Acasă'
+    en: 'Parohia Norwich',
+    ro: 'Parohia Norwich'
   };
   const description = {
     en: 'Romanian Orthodox Parish of Holy Martyr Philothea & Saint Bede the Venerable | Discover the Romanian Christian Orthodox parish in Gillingham, Norfolk, serving the Romanian community. Learn more about our parish.',
@@ -37,13 +37,6 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     title: lang === 'ro' ? title.ro : title.en,
     description: lang === 'ro' ? description.ro : description.en,
     keywords,
-    alternates: {
-      canonical: 'https://parohianorwich.org/en',
-      languages: {
-        'en': 'https://www.parohianorwich.org/en',
-        'ro': 'https://www.parohianorwich.org/ro',
-      },
-    },
   };
 }
 

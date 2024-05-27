@@ -6,6 +6,26 @@ import cross from "@/public/cross.png"
 import NewsFeed from "@/components/newsFeed";
 import React from "react";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const { lang } = params;
+  const title = {
+    en: 'Parohia Norwich | Home',
+    ro: 'Parohia Norwich | Acasă'
+  };
+
+  return {
+    title: lang === 'ro' ? title.ro : title.en,
+    alternates: {
+      canonical: 'https://www.parohianorwich.org/en',
+      languages: {
+        'en': 'https://www.parohianorwich.org/en',
+        'ro': 'https://www.parohianorwich.org/ro',
+      },
+    },
+  };
+}
 
 export default async function Home({
   params: { lang }

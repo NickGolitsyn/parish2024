@@ -5,6 +5,13 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: "Contact",
+  alternates: {
+    canonical: 'https://www.parohianorwich.org/en/about',
+    languages: {
+      'en': 'https://www.parohianorwich.org/en/about',
+      'ro': 'https://www.parohianorwich.org/ro/about',
+    },
+  },
 };
 
 export default async function page({

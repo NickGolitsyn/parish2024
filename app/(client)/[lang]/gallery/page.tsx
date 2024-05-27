@@ -12,7 +12,14 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   };
 
   return {
-    title: lang === 'ro' ? title.ro : title.en
+    title: lang === 'ro' ? title.ro : title.en,
+    alternates: {
+      canonical: 'https://www.parohianorwich.org/en/gallery',
+      languages: {
+        'en': 'https://www.parohianorwich.org/en/gallery',
+        'ro': 'https://www.parohianorwich.org/ro/gallery',
+      },
+    },
   };
 }
 
