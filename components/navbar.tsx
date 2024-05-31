@@ -7,7 +7,6 @@ import LocaleSwitcher from './localeSwitcher';
 import { getDictionary } from '@/lib/dictionary';
 import Image from 'next/image';
 import logo from '@/public/logo.jpg';
-import Link from 'next/link';
 
 interface NavigationItem {
   name: string;

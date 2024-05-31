@@ -42,6 +42,10 @@ export default async function page({
             <p>tel:</p>
             <Link href={`tel:${page.contact.tel}`} className='underline text-amber-600'>{page.contact.tel}</Link>
           </div>
+          <div className='flex flex-col items-center'>
+            <p>facebook:</p>
+            <Link href='https://www.facebook.com/B.O.R.N.E.A.CO.UK/' className='underline text-amber-600'>facebook.com/B.O.R.N.E.A.CO.UK/</Link>
+          </div>
         </div>
       </div>
       <div className='flex flex-col items-center mt-10 w-full justify-between' id="visit">
