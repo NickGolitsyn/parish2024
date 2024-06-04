@@ -44,8 +44,11 @@ export default async function page({
           </React.Fragment>
         ))}
       </p>
-      <Button asChild className='mt-3'>
+      {/* <Button asChild className='mt-3'>
         <Link href="https://www.paypal.com/" target='_blank'>{page.donate.title}</Link>
+      </Button> */}
+      <Button disabled className='mt-3'>
+        {page.donate.title}
       </Button>
       <Image 
         src={photo} 

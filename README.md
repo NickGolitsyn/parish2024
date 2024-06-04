@@ -22,8 +22,8 @@
 - [x] Add description for news in Schema
 - [x] Localise page titles
 - [x] Add facebook button on mobile
+- [x] Add facebook button on desktop
 - [ ] Terms and conditions & Privacy Policy
-- [ ] Add facebook button on desktop
 - [ ] Add loading state for carousel
 - [ ] Close gallery down
 - [ ] Improve titles

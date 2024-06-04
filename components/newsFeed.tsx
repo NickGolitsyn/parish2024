@@ -11,7 +11,7 @@ import { Locale } from "@/i18n.config";
 import { PortableText } from '@portabletext/react';
 import React from 'react';
 
-const query = groq`*[_type == 'news']`;
+const query = groq`*[_type == 'news'] | order(_createdAt desc)`;
 
 export const revalidate = 500;
 
@@ -40,6 +40,25 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
     setVisibleCounter((prevCount) => prevCount + 2);
   }
 
+  const formatDate = (dateString: string, format: string) => {
+    const date = new Date(dateString);
+    const options: Intl.DateTimeFormatOptions = {};
+
+    if (format === 'D MMM') {
+      options.day = 'numeric';
+      options.month = 'short';
+    } else if (format === 'dddd D MMM') {
+      options.weekday = 'long';
+      options.day = 'numeric';
+      options.month = 'long';
+    } else if (format === 'D MMM, hh:mm') {
+      options.day = 'numeric';
+      options.month = 'long';
+    }
+
+    return new Intl.DateTimeFormat(lang === 'ro' ? 'ro' : 'en-UK', options).format(date);
+  };
+
   const renderSkeleton = () => (
     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rounded-sm border py-3 px-5 animate-pulse">
       <div className="bg-gray-300 rounded-sm h-40 w-40"></div>
@@ -59,16 +78,17 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
       <div className='space-y-5 sm:space-y-10'>
         {loading ? renderSkeleton() : news.slice(0, visibleCounter).map((e:any) => (
           <div key={e?._id} className='flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rounded-sm border py-3 px-5'>
-            <h1 className='font-semibold text-xl text-center sm:hidden'>
-              {/* <PortableText value={e?.title[lang].replace(/\\n/g, '<br/>')} /> */}
-              {/* {e?.title[lang]} */}
-              {e?.title[lang].split('\\n').map((line: any, index: any) => (
-                <React.Fragment key={index}>
-                  {line}
-                  <br />
-                </React.Fragment>
-              ))}
-            </h1>
+            <div className='text-center sm:hidden'>
+              <h1 className='font-semibold text-xl text-center'>
+                {e?.title[lang].split('\\n').map((line: any, index: any) => (
+                  <React.Fragment key={index}>
+                    {line}
+                    <br />
+                  </React.Fragment>
+                ))}
+              </h1>
+              <time className='text-sm'>{formatDate(e?._createdAt as string, 'D MMM, hh:mm')}</time>
+            </div>
             <Image 
               src={urlForImage(e?.imagedata.image[lang].asset._ref)} 
               width={500}
@@ -78,7 +98,10 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
             />
             <div className='flex flex-col gap-2 w-full'>
               {/* <h1 className='hidden font-semibold sm:block text-xl'>{e?.title[lang]}</h1> */}
-              <h1 className='hidden font-semibold sm:block text-xl'>{e?.title[lang].replace(/\\n/g, ' ')}</h1>
+              <div className='hidden sm:block'>
+                <h1 className='font-semibold text-xl'>{e?.title[lang].replace(/\\n/g, ' ')}</h1>
+                <time className='text-sm'>{formatDate(e?._createdAt as string, 'D MMM, hh:mm')}</time>
+              </div>
               <div className='text-center sm:text-left'>
                 <PortableText value={e?.description[lang]} />
               </div>
