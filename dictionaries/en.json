@@ -4,7 +4,7 @@
     "about": "About",
     "contact": "Contact",
     "services": "Services",
-    "gallery": "Past Events",
+    "pastevents": "Past Events",
     "donate": "Donate",
     "sundaySchool": "Sunday School"
   },
@@ -99,6 +99,10 @@
         "A means of donating via this website will be available shortly."
       ],
       "image": "https://utfs.io/f/594f059d-9e3d-4fa2-8be0-00929fb599f0-ss19w8.jpg"
+    },
+    "pastevents": {
+      "title": "Past Events",
+      "desc": ""
     },
     "sundaySchool": {
       "title": "Sunday School",

@@ -65,28 +65,6 @@ export default async function Home({
           className="max-h-32 sm:max-h-full w-auto"
         />
         <div className="text-center">
-          {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 my-5">
-            <Card
-              title="About"
-              description="About our parish and saints."
-              url={`${lang}/about`}
-            />
-            <Card
-              title="Contact"
-              description="Find out how to contact us and where we are located."
-              url={`${lang}/contact`}
-            />
-            <Card
-              title="Services"
-              description="Upcoming service schedule."
-              url={`${lang}/services`}
-            />
-            <Card
-              title="Donate"
-              description="Donate to out parish."
-              url={`${lang}/donate`}
-            />
-          </div> */}
           <p
             className="mt-6 text-sm sm:text-lg px-5 text-gray-600"
             dangerouslySetInnerHTML={{

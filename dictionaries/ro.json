@@ -4,7 +4,7 @@
     "about": "Despre",
     "contact": "Contact",
     "services": "Programul slujbelor",
-    "gallery": "Activitatea parohiei",
+    "pastevents": "Activitatea parohiei",
     "donate": "Donații",
     "sundaySchool": "Școala de duminică"
   },
@@ -96,6 +96,10 @@
         "Suntem în curs de a vă pune la dispozitie pe acest website o modalitate de a face donații on line."
       ],
       "image": "https://utfs.io/f/2aa0b2a8-08d0-40ed-8d09-20e4111faadc-814lxw.jpg"
+    },
+    "pastevents": {
+      "title": "Activitatea parohiei",
+      "desc": ""
     },
     "sundaySchool": {
       "title": "Școala de duminică",

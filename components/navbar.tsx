@@ -25,7 +25,7 @@ export default function Navbar({ lang }: { lang: Locale }) {
         { name: nav.about, href: 'about' },
         { name: nav.contact, href: 'contact' },
         { name: nav.services, href: 'services' },
-        { name: nav.gallery, href: 'gallery' },
+        { name: nav.pastevents, href: 'past-events' },
         { name: nav.donate, href: 'donate' },
         { name: nav.sundaySchool, href: 'sunday-school' },
       ];

@@ -1,7 +1,6 @@
 import { dataset, projectId } from './sanity/env'
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
-// import { deskTool } from 'sanity/desk';
 import {structureTool} from 'sanity/structure'
 import { schema, singletonListItem, singletonTypes, singletonActions } from './sanity/schema';
 
@@ -21,7 +20,7 @@ export default defineConfig({
             S.documentTypeListItem('news').title('news'),
             S.documentTypeListItem('sundayschool').title('sunday school'),
             S.documentTypeListItem('services').title('services'),
-            S.documentTypeListItem('gallery').title('gallery'),
+            S.documentTypeListItem('pastevents').title('past events'),
             singletonListItem(S, 'donate'),
           ]),
     }),

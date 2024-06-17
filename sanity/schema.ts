@@ -1,14 +1,14 @@
 import services from './schemas/services';
 import about from './schemas/about';
 import contact from './schemas/contact';
-import gallery from './schemas/gallery';
 import donate from './schemas/donate';
 import home from './schemas/home';
 import news from './schemas/news';
 import sundayschool from './schemas/sundayschool';
+import pastevents from './schemas/pastevents';
 
 export const schema: { types: any[] } = {
-  types: [home, news, about, contact, services, gallery, donate, sundayschool],
+  types: [home, news, about, contact, services, pastevents, donate, sundayschool],
 };
 
 // Add these lines to your schema.ts file

@@ -42,6 +42,18 @@ interface SanityGallery extends SanityBase {
   alt: { en: string; ro: string };
 }
 
+interface PastEvents extends SanityBase {
+  _type: "pastevents";
+  title: { en: string; ro: string };
+  slideshow: [];
+  screening: { 
+    news: {
+      _weak: boolean
+      _ref: string
+    }
+  }
+}
+
 interface News extends SanityBase {
   _type: "news";
   title: { en: string; ro: string };

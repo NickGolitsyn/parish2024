@@ -54,7 +54,7 @@ export default function HomepageCarousel() {
   );
 }
 
-export const revalidate = 500;
+export const revalidate = 5000;
 
 // Note: Since you're using Next.js, if you intended to use ISR (Incremental Static Regeneration),
 // you would define `getStaticProps` or `getServerSideProps` instead of using `revalidate` here.
