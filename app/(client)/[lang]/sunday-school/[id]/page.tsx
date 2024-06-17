@@ -25,7 +25,7 @@ export default function Page({ params: { lang, id } }: { params: { lang: Locale,
       }
     }
     fetchData()
-  }, [])
+  })
 
   if (loading) {
     return <div>Loading...</div>

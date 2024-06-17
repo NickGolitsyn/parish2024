@@ -7,13 +7,12 @@ import Autoplay from 'embla-carousel-autoplay';
 import { urlForImage } from '@/sanity/lib/image';
 
 export default function Slideshow({ imageData }: { imageData: [] }) {
-  // const [home, setHome] = useState<PastEvents[]>([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     if (imageData) {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [])
+  }, [imageData]);
   const autoplayPlugin = Autoplay({ delay: 5000 });
   
   const renderSkeleton = () => (

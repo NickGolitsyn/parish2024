@@ -11,7 +11,7 @@ const query = groq`
 *[_type == 'pastevents'] | order(_createdAt desc)
 `;
 
-export default function pageLayout({ lang }: { lang: Locale }) {
+export default function PageLayout({ lang }: { lang: Locale }) {
   const [data, setData] = useState<PastEvents[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
@@ -28,7 +28,7 @@ export default function pageLayout({ lang }: { lang: Locale }) {
     };
 
     fetchGallery();
-  }, []);
+  });
   return (
     <div>
       {isLoading && (

@@ -11,7 +11,7 @@ import { Locale } from "@/i18n.config";
 import { PortableText } from '@portabletext/react';
 import React from 'react';
 
-const query = groq`*[_type == 'news'] | order(_createdAt desc)`;
+const query = groq`*[_type == 'news' && hide == false] | order(_createdAt desc)`;
 
 export const revalidate = 500;
 

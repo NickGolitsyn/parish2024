@@ -7,6 +7,7 @@ import bede from '@/public/bede.jpg';
 import Link from 'next/link';
 import logo from '@/public/logo.jpg';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Parish from './(components)/parish';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = params;
@@ -37,17 +38,12 @@ export default async function page({
     <main className="pt-36 mb-20 px-5 max-w-screen-md mx-auto">
       <Tabs defaultValue="parish">
         <TabsList className='flex w-min mx-auto'>
-          <TabsTrigger value="parish">About our Parish</TabsTrigger>
-          <TabsTrigger value="saints">About our Saints</TabsTrigger>
+          <TabsTrigger value="parish">{page.about.parish}</TabsTrigger>
+          <TabsTrigger value="saints">{page.about.saints}</TabsTrigger>
         </TabsList>
         <TabsContent value="parish">
-          <div className='flex flex-col items-center mt-10'>
-            <h1 className='text-2xl font-bold mb-2'>{page.about.parish}</h1>
-            <div className='space-y-2'>
-              <p className='text-sm sm:text-base'>{page.about.parishText}</p>
-            </div>
-          </div>
-        </TabsContent>
+          <Parish lang={lang} words={page} />
+        </TabsContent>  
         <TabsContent value="saints">
           <div className='flex flex-col items-center mt-10'>
             <h3 className='text-2xl font-bold mb-2'>{page.about.saints}</h3>

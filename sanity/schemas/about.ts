@@ -24,6 +24,18 @@ export default defineType({
       ]
     }),
     defineField({
+      name: 'embed',
+      title: 'Embed links',
+      validation: (Rule) => Rule.required(),
+      type: 'array',
+      of: [{
+        name: "url",
+        title: "Link",
+        validation: (Rule) => Rule.required(),
+        type: 'url', 
+      }]
+    }),
+    defineField({
       name: "saints",
       title: "About out saints",
       validation: (Rule) => Rule.required(),

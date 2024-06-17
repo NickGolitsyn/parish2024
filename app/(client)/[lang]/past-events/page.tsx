@@ -37,7 +37,6 @@ export default async function page({
         </p>
       )}
       <PELayout lang={lang} />
-      
     </main>
   )
 }

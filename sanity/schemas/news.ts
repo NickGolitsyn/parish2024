@@ -119,6 +119,14 @@ export default defineType({
       name: 'button',
       title: 'Read button',
       type: 'boolean',
+      initialValue: false,
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'hide',
+      title: 'Hide button',
+      type: 'boolean',
+      initialValue: false,
       validation: (Rule) => Rule.required(),
     })
   ],

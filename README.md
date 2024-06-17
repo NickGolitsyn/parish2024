@@ -23,6 +23,11 @@
 - [x] Localise page titles
 - [x] Add facebook button on mobile
 - [x] Add facebook button on desktop
+- [x] Replace gallery page with past events page
+- [x] Create 2 tabs on about page
+- [ ] Add ability to embed links to About page
+- [x] Add hide button to News schema
+- [ ] Remake sunday school page, that will look like Past Events page
 - [ ] Terms and conditions & Privacy Policy
 - [ ] Add loading state for carousel
 - [ ] Close gallery down
