@@ -72,7 +72,7 @@ export function VideoSection() {
     <div className="relative w-full h-full">
       <video
         ref={videoRef}
-        src="https://evwxovg0nb.ufs.sh/f/IKbgtLf8GHrleuzgC4hhQmZpE3tvyxbLNsrIXUfdT0lSGwBC"
+        src="https://evwxovg0nb.ufs.sh/f/IKbgtLf8GHrl4bjjmzQ3h092AclG1iHqBI6KpjgE3Od75LYu"
         className="w-full h-full object-cover cursor-pointer rounded-md"
         autoPlay
         muted
