@@ -79,14 +79,14 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
         {loading ? renderSkeleton() : news.slice(0, visibleCounter).map((e:any) => (
           <div key={e?._id} className='flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rounded-sm border py-3 px-5'>
             <div className='text-center sm:hidden'>
-              <h1 className='font-semibold text-xl text-center'>
+              <h3 className='font-semibold text-xl text-center'>
                 {e?.title[lang].split('\\n').map((line: any, index: any) => (
                   <React.Fragment key={index}>
                     {line}
                     <br />
                   </React.Fragment>
                 ))}
-              </h1>
+              </h3>
               <time className='text-sm'>{formatDate(e?._createdAt as string, 'D MMM, hh:mm')}</time>
             </div>
             <Image 
@@ -97,9 +97,9 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
               className="h-auto sm:h-64 w-2/3 mx-auto sm:w-auto rounded-sm"
             />
             <div className='flex flex-col gap-2 w-full'>
-              {/* <h1 className='hidden font-semibold sm:block text-xl'>{e?.title[lang]}</h1> */}
+              {/* <h3 className='hidden font-semibold sm:block text-xl'>{e?.title[lang]}</h3> */}
               <div className='hidden sm:block'>
-                <h1 className='font-semibold text-xl'>{e?.title[lang].replace(/\\n/g, ' ')}</h1>
+                <h3 className='font-semibold text-xl'>{e?.title[lang].replace(/\\n/g, ' ')}</h3>
                 <time className='text-sm'>{formatDate(e?._createdAt as string, 'D MMM, hh:mm')}</time>
               </div>
               <div className='text-center sm:text-left'>
@@ -122,7 +122,7 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
               className='rounded-sm h-40 w-auto'
             />
             <div>
-              <h1 className='font-semibold sm:text-xl'>Easter Services</h1>
+              <h3 className='font-semibold sm:text-xl'>Easter Services</h3>
               <p className='text-sm'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
           </div>

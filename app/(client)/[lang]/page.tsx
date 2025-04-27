@@ -7,6 +7,7 @@ import NewsFeed from "@/components/newsFeed";
 import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
+import { VideoSection } from "@/components/videoSection";
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = params;
@@ -74,7 +75,13 @@ export default async function Home({
         </div>
       </section>
       <section>
-        <h2 className='text-2xl font-bold mb-4 mx-5'>{page.news.title}</h2>
+        <h2 className='text-2xl font-bold mb-4 mx-5 text-center'>{page.news.title}</h2>
+        <div className="w-full">
+          <h3 className='font-semibold text-xl text-center mb-2'>{lang == 'en' ? "Christ is Risen!" : "Hristos a înviat!"}</h3>
+          <div className="px-5">
+            <VideoSection />
+          </div>
+        </div>
         <NewsFeed lang={lang} words={page.news} />
         {/* <div className="flex flex-col-reverse sm:flex-row gap-2 mx-5 mb-5">
           <Image 

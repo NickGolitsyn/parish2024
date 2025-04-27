@@ -80,14 +80,14 @@ export default function NewsFeed({ lang, newsID }: { lang: Locale, newsID: strin
         {loading ? renderSkeleton() : news.slice(0, visibleCounter).map((e:any) => (
           <div key={e?._id} className='flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rounded-sm border py-3 px-5'>
             <div className='text-center sm:hidden'>
-              <h1 className='font-semibold text-xl text-center'>
+              <h3 className='font-semibold text-xl text-center'>
                 {e?.title[lang].split('\\n').map((line: any, index: any) => (
                   <React.Fragment key={index}>
                     {line}
                     <br />
                   </React.Fragment>
                 ))}
-              </h1>
+              </h3>
               <time className='text-sm'>{formatDate(e?._createdAt as string, 'D MMM, hh:mm')}</time>
             </div>
             <Image 
@@ -100,7 +100,7 @@ export default function NewsFeed({ lang, newsID }: { lang: Locale, newsID: strin
             <div className='flex flex-col gap-2 w-full'>
               {/* <h1 className='hidden font-semibold sm:block text-xl'>{e?.title[lang]}</h1> */}
               <div className='hidden sm:block'>
-                <h1 className='font-semibold text-xl'>{e?.title[lang].replace(/\\n/g, ' ')}</h1>
+                <h3 className='font-semibold text-xl'>{e?.title[lang].replace(/\\n/g, ' ')}</h3>
                 <time className='text-sm'>{formatDate(e?._createdAt as string, 'D MMM, hh:mm')}</time>
               </div>
               <div className='text-center sm:text-left'>
