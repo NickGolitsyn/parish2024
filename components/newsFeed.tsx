@@ -80,7 +80,7 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
           <div key={e?._id} className='flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rounded-sm border py-3 px-5'>
             <div className='text-center sm:hidden'>
               <h3 className='font-semibold text-xl text-center'>
-                {e?.title[lang].split('\\n').map((line: any, index: any) => (
+                {(e?.title?.[lang] ?? e?.title?.en ?? '').split('\\n').map((line: any, index: any) => (
                   <React.Fragment key={index}>
                     {line}
                     <br />
@@ -89,21 +89,30 @@ export default function NewsFeed({ lang, words }: { lang: Locale, words: any }) 
               </h3>
               <time className='text-sm'>{formatDate(e?._createdAt as string, 'D MMM, hh:mm')}</time>
             </div>
-            <Image 
-              src={urlForImage(e?.imagedata.image[lang].asset._ref)} 
-              width={500}
-              height={500}
-              alt={'News image'}
-              className="h-auto sm:h-64 w-2/3 mx-auto sm:w-auto rounded-sm"
-            />
+            {
+              (() => {
+                const roRef = e?.imagedata?.image?.[lang]?.asset?._ref;
+                const enRef = e?.imagedata?.image?.en?.asset?._ref;
+                const imgRef = roRef ?? enRef;
+                return imgRef ? (
+                  <Image
+                    src={urlForImage(imgRef)}
+                    width={500}
+                    height={500}
+                    alt={'News image'}
+                    className="h-auto sm:h-64 w-2/3 mx-auto sm:w-auto rounded-sm"
+                  />
+                ) : null;
+              })()
+            }
             <div className='flex flex-col gap-2 w-full'>
               {/* <h3 className='hidden font-semibold sm:block text-xl'>{e?.title[lang]}</h3> */}
               <div className='hidden sm:block'>
-                <h3 className='font-semibold text-xl'>{e?.title[lang].replace(/\\n/g, ' ')}</h3>
+                <h3 className='font-semibold text-xl'>{(e?.title?.[lang] ?? e?.title?.en ?? '').replace(/\\n/g, ' ')}</h3>
                 <time className='text-sm'>{formatDate(e?._createdAt as string, 'D MMM, hh:mm')}</time>
               </div>
               <div className='text-center sm:text-left'>
-                <PortableText value={e?.description[lang]} />
+                <PortableText value={e?.description?.[lang] ?? e?.description?.en} />
               </div>
               {e?.button && (
                 <Button asChild className='w-min mx-auto sm:mx-0'>
