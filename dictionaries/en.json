@@ -5,6 +5,7 @@
     "contact": "Contact",
     "services": "Services",
     "pastevents": "Past Events",
+    "history": "History of our Parish",
     "donate": "Donate",
     "sundaySchool": "Sunday School"
   },
@@ -91,6 +92,9 @@
       "email": "ovidiuioan_pop@yahoo.co.uk",
       "visitTitle": "Visit us",
       "visitDesc": "The church is open only during the times announced on the <Link href='/en/services' class='underline text-amber-600'>services page</Link>. Everybody is welcome."
+    },
+    "history": {
+      "title": "History of our Parish"
     },
     "donate": {
       "title": "Donate",

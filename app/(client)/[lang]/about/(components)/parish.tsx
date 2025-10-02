@@ -4,6 +4,8 @@ import { groq } from 'next-sanity';
 import { client } from '@/sanity/lib/client';
 import { Locale } from "@/i18n.config";
 import React from 'react';
+import Image from 'next/image';
+import aboutImage from '@/public/aboutParish.jpeg';
 
 const query = groq`
   *[_type == 'about'][0]{
@@ -41,6 +43,13 @@ export default function Parish({ lang, words }: { lang: Locale, words: any }) {
       )}
       {!loading && (
         <div className='flex flex-col items-center mt-10'>
+          <div className='mt-2 mb-10'>
+            <Image 
+              src={aboutImage} 
+              alt={'Icon of St Philothea & Bede the Venerable'}
+              className='rounded-md mx-auto h-64 sm:h-80 w-auto'
+            />
+          </div>
           <h1 className='text-2xl font-bold mb-2'>{words.about.parish}</h1>
           <div className='space-y-2'>
             <p className='text-sm sm:text-base'>{data.parish[lang]}</p>

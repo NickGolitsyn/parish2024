@@ -1,0 +1,43 @@
+import { Button } from '@/components/ui/button'
+import { Locale } from '@/i18n.config'
+import { getDictionary } from '@/lib/dictionary'
+import { Metadata } from 'next';
+import photo from "@/public/donateImage.jpeg"
+import Image from 'next/image';
+import Link from 'next/link'
+import React from 'react';
+
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const { lang } = params;
+  const title = {
+    en: 'History of our Parish',
+    ro: 'Istoricul parohiei noastre'
+  };
+
+  return {
+    title: lang === 'ro' ? title.ro : title.en,
+    alternates: {
+      canonical: 'https://www.parohianorwich.org/en/donate',
+      languages: {
+        'en': 'https://www.parohianorwich.org/en/donate',
+        'ro': 'https://www.parohianorwich.org/ro/donate',
+      },
+    },
+  };
+}
+
+export default async function page({
+  params: { lang }
+}: {
+  params: { lang: Locale }
+}) {
+  const { page } = await getDictionary(lang)
+  return (
+    <main className="text-sm sm:text-base pt-36 px-5 max-w-screen-md mx-auto flex flex-col items-center">
+      <h1 className='text-2xl font-bold mb-2'>{page.history.title}</h1>
+      <p className='text-center'>
+        Coming soon
+      </p>
+    </main>
+  )
+}

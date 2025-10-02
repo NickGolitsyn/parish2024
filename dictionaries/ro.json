@@ -5,6 +5,7 @@
     "contact": "Contact",
     "services": "Programul slujbelor",
     "pastevents": "Activitatea parohiei",
+    "history": "Istoricul parohiei noastre",
     "donate": "Donații",
     "sundaySchool": "Școala de duminică"
   },
@@ -88,6 +89,9 @@
       "email": "ovidiuioan_pop@yahoo.co.uk",
       "visitTitle": "Adresa",
       "visitDesc": "Biserica este deschisă doar între orele anunțate în program. Vă așteptăm cu drag să ne vizitați."
+    },
+    "history": {
+      "title": "Istoricul parohiei noastre"
     },
     "donate": {
       "title": "Donații",
