@@ -6,14 +6,16 @@ import home from './schemas/home';
 import news from './schemas/news';
 import sundayschool from './schemas/sundayschool';
 import pastevents from './schemas/pastevents';
+import youtube from './schemas/youtube';
+import parishhistory from './schemas/parishhistory';
 
 export const schema: { types: any[] } = {
-  types: [home, news, about, contact, services, pastevents, donate, sundayschool],
+  types: [home, news, about, contact, services, pastevents, donate, sundayschool, youtube, parishhistory],
 };
 
 // Add these lines to your schema.ts file
 export const singletonActions = new Set(["publish", "discardChanges", "restore"]);
-export const singletonTypes = new Set(["home", "about", "contact", "donate"]);
+export const singletonTypes = new Set(["home", "about", "contact", "donate", "sundayschool", "parishhistory"]);
 
 export const singletonListItem = (S: any, typeName: string, title = typeName) =>
   S.listItem()

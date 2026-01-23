@@ -44,16 +44,13 @@ export default defineType({
       type: 'string',
     }),
   ],
-  options: {
-    singleInstance: true,
-    preview: {
-      select: {
-        title: 'contact.en'
-      },
-      prepare() {
-        return {
-          title: 'Contact'
-        }
+  preview: {
+    select: {
+      title: 'contact.en'
+    },
+    prepare() {
+      return {
+        title: 'Contact'
       }
     }
   },

@@ -68,3 +68,13 @@ interface Donate extends SanityBase {
   donateDesc: { en: string; ro: string };
   link: string;
 }
+
+interface SundaySchool extends SanityBase {
+  _type: "sundayschool";
+  content: { en: any[]; ro: any[] };
+}
+
+interface ParishHistory extends SanityBase {
+  _type: "parishhistory";
+  content: { en: any[]; ro: any[] };
+}

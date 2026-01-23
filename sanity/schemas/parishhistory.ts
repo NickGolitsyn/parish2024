@@ -1,8 +1,8 @@
 import { defineType, defineField } from 'sanity';
 
 export default defineType({
-  name: 'sundayschool',
-  title: 'Sunday School',
+  name: 'parishhistory',
+  title: 'Parish History',
   type: 'document',
   fields: [
     defineField({
@@ -38,11 +38,11 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: 'sundayschool.en'
+      title: 'parishhistory.en'
     },
     prepare() {
       return {
-        title: 'Sunday School'
+        title: 'Parish History'
       }
     }
   },

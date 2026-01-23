@@ -54,16 +54,13 @@ export default defineType({
       ]
     }), 
   ],
-  options: {
-    singleInstance: true,
-    preview: {
-      select: {
-        title: 'about.en'
-      },
-      prepare() {
-        return {
-          title: 'About'
-        }
+  preview: {
+    select: {
+      title: 'about.en'
+    },
+    prepare() {
+      return {
+        title: 'About'
       }
     }
   },

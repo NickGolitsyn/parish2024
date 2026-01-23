@@ -1,11 +1,11 @@
-import { Button } from '@/components/ui/button'
 import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
 import { Metadata } from 'next';
-import photo from "@/public/donateImage.jpeg"
-import Image from 'next/image';
-import Link from 'next/link'
-import React from 'react';
+import { getClient } from '@/sanity/lib/server-client';
+import { groq } from 'next-sanity';
+import { PortableText } from '@portabletext/react';
+import { portableTextComponents } from '@/components/portableTextComponents';
+import { ParishHistory } from '@/typings';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = params;
@@ -17,10 +17,10 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
   return {
     title: lang === 'ro' ? title.ro : title.en,
     alternates: {
-      canonical: 'https://www.parohianorwich.org/en/donate',
+      canonical: 'https://www.parohianorwich.org/en/parish-history',
       languages: {
-        'en': 'https://www.parohianorwich.org/en/donate',
-        'ro': 'https://www.parohianorwich.org/ro/donate',
+        'en': 'https://www.parohianorwich.org/en/parish-history',
+        'ro': 'https://www.parohianorwich.org/ro/parish-history',
       },
     },
   };
@@ -31,13 +31,26 @@ export default async function page({
 }: {
   params: { lang: Locale }
 }) {
+  // Fetch singleton by its fixed ID (singletons always have _id matching the schema name)
+  // Use getClient() to support draft mode for Visual Editing
+  const client = getClient();
+  const query = groq`*[_id == "parishhistory"][0]`;
+  const parishHistory: ParishHistory | null = await client.fetch(query);
   const { page } = await getDictionary(lang)
+  
   return (
-    <main className="text-sm sm:text-base pt-36 px-5 max-w-screen-md mx-auto flex flex-col items-center">
-      <h1 className='text-2xl font-bold mb-2'>{page.history.title}</h1>
-      <p className='text-center'>
-        Coming soon
-      </p>
+    <main className="pt-36 mb-20 px-5 max-w-screen-md mx-auto">
+      <h1 className='text-2xl font-bold mb-6'>{page.history.title}</h1>
+      <div className="prose lg:prose-xl max-w-none">
+        {parishHistory?.content?.[lang] ? (
+          <PortableText 
+            value={parishHistory.content[lang]} 
+            components={portableTextComponents}
+          />
+        ) : (
+          <p>Content coming soon...</p>
+        )}
+      </div>
     </main>
   )
 }

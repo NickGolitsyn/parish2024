@@ -30,16 +30,13 @@ export default defineType({
       type: 'string', 
     }),
   ],
-  options: {
-    singleInstance: true,
-    preview: {
-      select: {
-        title: 'donate.en'
-      },
-      prepare() {
-        return {
-          title: 'Donate'
-        }
+  preview: {
+    select: {
+      title: 'donate.en'
+    },
+    prepare() {
+      return {
+        title: 'Donate'
       }
     }
   },

@@ -1,8 +1,11 @@
-import SundaySchoolFeed from '@/components/sundaySchoolFeed';
 import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
 import { Metadata } from 'next';
-import Image from 'next/image';
+import { getClient } from '@/sanity/lib/server-client';
+import { groq } from 'next-sanity';
+import { PortableText } from '@portabletext/react';
+import { portableTextComponents } from '@/components/portableTextComponents';
+import { SundaySchool } from '@/typings';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = params;
@@ -28,22 +31,25 @@ export default async function page({
 }: {
   params: { lang: Locale }
 }) {
+  // Fetch singleton by its fixed ID (singletons always have _id matching the schema name)
+  // Use getClient() to support draft mode for Visual Editing
+  const client = getClient();
+  const query = groq`*[_id == "sundayschool"][0]`;
+  const sundaySchool: SundaySchool | null = await client.fetch(query);
   const { page } = await getDictionary(lang)
+  
   return (
     <main className="pt-36 mb-20 px-5 max-w-screen-md mx-auto">
-      <h1 className='text-2xl font-bold mb-2'>{page.sundaySchool.title}</h1>
-      <p>{page.sundaySchool.text}</p>
-      <div className='mt-5'>
-        <SundaySchoolFeed lang={lang} words={page.news} />
-      </div>
-      <div className='flex justify-center'>
-        <Image 
-          src={'https://utfs.io/f/08848e9e-2d90-4870-945c-4bc24eb15f14-wkc33w.jpg'} 
-          alt={'Sunday School'} 
-          width={'100'}
-          height={'100'}
-          className="max-h-64 h-80 sm:max-h-full w-auto rounded-sm mt-5"
-        />
+      <h1 className='text-2xl font-bold mb-6'>{page.sundaySchool.title}</h1>
+      <div className="prose lg:prose-xl max-w-none">
+        {sundaySchool?.content?.[lang] ? (
+          <PortableText 
+            value={sundaySchool.content[lang]} 
+            components={portableTextComponents}
+          />
+        ) : (
+          <p>Content coming soon...</p>
+        )}
       </div>
     </main>
   )

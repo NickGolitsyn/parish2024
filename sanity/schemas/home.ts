@@ -36,16 +36,13 @@ export default defineType({
       ]
     }),
   ],
-  options: {
-    singleInstance: true,
-    preview: {
-      select: {
-        title: 'home.en'
-      },
-      prepare() {
-        return {
-          title: 'Home'
-        }
+  preview: {
+    select: {
+      title: 'home.en'
+    },
+    prepare() {
+      return {
+        title: 'Home'
       }
     }
   },

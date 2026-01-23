@@ -2,6 +2,7 @@ import { dataset, projectId } from './sanity/env'
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import {structureTool} from 'sanity/structure'
+import { presentationTool } from 'sanity/presentation'
 import { schema, singletonListItem, singletonTypes, singletonActions } from './sanity/schema';
 
 export default defineConfig({
@@ -18,11 +19,20 @@ export default defineConfig({
             singletonListItem(S, 'about'),
             singletonListItem(S, 'contact'),
             S.documentTypeListItem('news').title('news'),
-            S.documentTypeListItem('sundayschool').title('sunday school'),
+            singletonListItem(S, 'sundayschool'),
+            singletonListItem(S, 'parishhistory'),
             S.documentTypeListItem('services').title('services'),
             S.documentTypeListItem('pastevents').title('past events'),
             singletonListItem(S, 'donate'),
           ]),
+    }),
+    presentationTool({
+      previewUrl: {
+        draftMode: {
+          enable: '/api/preview',
+          disable: '/api/disable-preview',
+        },
+      },
     }),
     visionTool(),
   ],
