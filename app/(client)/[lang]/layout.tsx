@@ -22,7 +22,7 @@ const playfair = Playfair_Display({ subsets: ["latin"] });
 // };
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const { lang } = params;
+  const { lang } = await params;
   const title = {
     en: 'Parohia Norwich',
     ro: 'Parohia Norwich'
@@ -44,18 +44,20 @@ export async function generateStaticParams() {
   return i18n.locales.map(locale => ({ lang: locale }))
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params
-}: Readonly<{
+}: {
   children: React.ReactNode;
-  params: { lang: Locale };
-}>) {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+  const locale = lang as Locale;
   return (
-    <html lang={params.lang}>
+    <html lang={locale}>
       <body className={`${playfair.className} flex flex-col min-h-screen`}>
         <div className="flex-grow">
-          <Navbar lang={params.lang} />
+          <Navbar lang={locale} />
           <div
             className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
             aria-hidden="true"
@@ -83,7 +85,7 @@ export default function RootLayout({
           {children}
         </div>
         <Analytics />
-        <Footer lang={params.lang} />
+        <Footer lang={locale} />
       </body>
     </html>
   );

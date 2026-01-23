@@ -10,7 +10,7 @@ import { Metadata } from "next";
 import { VideoSection } from "@/components/videoSection";
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const { lang } = params;
+  const { lang } = await params;
   const title = {
     en: "Parohia Norwich | Home",
     ro: "Parohia Norwich | Acasă",
@@ -29,10 +29,11 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 }
 
 export default async function Home({
-  params: { lang },
+  params,
 }: {
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }) {
+  const { lang } = await params;
   const { page } = await getDictionary(lang);
 
   return (

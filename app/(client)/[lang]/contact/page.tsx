@@ -15,10 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default async function page({
-  params: { lang }
+  params
 }: {
-  params: { lang: Locale }
+  params: Promise<{ lang: Locale }>
 }) {
+  const { lang } = await params;
   const apiKey = String(process.env.GOOGLE_MAPS_API_KEY);
   const location = "St Mary's Church, Church Road, Gillingham, Beccles NR34 0ND, United Kingdom";
   const mapSrc = `https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=${encodeURIComponent(location)}`;

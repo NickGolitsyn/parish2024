@@ -8,7 +8,7 @@ import { portableTextComponents } from '@/components/portableTextComponents';
 import { ParishHistory } from '@/typings';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const { lang } = params;
+  const { lang } = await params;
   const title = {
     en: 'History of our Parish',
     ro: 'Istoricul parohiei noastre'
@@ -27,13 +27,14 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 }
 
 export default async function page({
-  params: { lang }
+  params
 }: {
-  params: { lang: Locale }
+  params: Promise<{ lang: Locale }>
 }) {
+  const { lang } = await params;
   // Fetch singleton by its fixed ID (singletons always have _id matching the schema name)
   // Use getClient() to support draft mode for Visual Editing
-  const client = getClient();
+  const client = await getClient();
   const query = groq`*[_id == "parishhistory"][0]`;
   const parishHistory: ParishHistory | null = await client.fetch(query);
   const { page } = await getDictionary(lang)

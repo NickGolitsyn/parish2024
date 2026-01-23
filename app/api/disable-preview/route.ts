@@ -2,9 +2,13 @@ import { draftMode } from 'next/headers'
 import { redirect } from 'next/navigation'
 
 export async function GET(request: Request) {
-  const { searchParams } = new URL(request.url)
-  const redirectPath = searchParams.get('redirect') || '/'
+  const url = new URL(request.url)
+  const redirectParam = url.searchParams.get('redirect')
+  let redirectPath = '/'
+  if (redirectParam) {
+    redirectPath = redirectParam
+  }
 
-  draftMode().disable()
+  (await draftMode()).disable()
   redirect(redirectPath)
 }

@@ -8,7 +8,7 @@ import Link from 'next/link'
 import React from 'react';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const { lang } = params;
+  const { lang } = await params;
   const title = {
     en: 'Donate',
     ro: 'Donații'
@@ -27,10 +27,11 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 }
 
 export default async function page({
-  params: { lang }
+  params
 }: {
-  params: { lang: Locale }
+  params: Promise<{ lang: Locale }>
 }) {
+  const { lang } = await params;
   const { page } = await getDictionary(lang)
   return (
     <main className="text-sm sm:text-base pt-36 px-5 max-w-screen-md mx-auto flex flex-col items-center">

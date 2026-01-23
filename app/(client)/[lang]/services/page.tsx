@@ -10,7 +10,7 @@ import { groq } from 'next-sanity';
 import { Metadata } from 'next';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const { lang } = params;
+  const { lang } = await params;
   const title = {
     en: 'Services',
     ro: 'Programul slujbelor'
@@ -30,7 +30,8 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
 const query = groq`*[_type == 'services']`;
 
-export default async function page({ params: { lang } }: { params: { lang: Locale } }) {
+export default async function page({ params }: { params: Promise<{ lang: Locale }> }) {
+  const { lang } = await params;
   const { page } = await getDictionary(lang);
   const services: Services[] = await client.fetch(query);
 

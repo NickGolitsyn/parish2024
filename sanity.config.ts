@@ -11,7 +11,7 @@ export default defineConfig({
   dataset,
   plugins: [
     structureTool({
-      structure: (S) =>
+      structure: (S: any) =>
         S.list()
           .title('Content')
           .items([

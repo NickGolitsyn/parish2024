@@ -10,7 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Parish from './(components)/parish';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
-  const { lang } = params;
+  const { lang } = await params;
   const title = {
     en: 'About',
     ro: 'Despre'
@@ -29,10 +29,11 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 }
 
 export default async function page({
-  params: { lang }
+  params
 }: {
-  params: { lang: Locale }
+  params: Promise<{ lang: Locale }>
 }) {
+  const { lang } = await params;
   const { page } = await getDictionary(lang)
   return (
     <main className="pt-36 mb-20 px-5 max-w-screen-md mx-auto">
