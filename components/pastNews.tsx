@@ -33,7 +33,7 @@ export default function NewsFeed({ lang, newsID }: { lang: Locale, newsID: strin
     };
 
     fetchData();
-  });
+  }, [newsID]);
 
   const [visibleCounter, setVisibleCounter] = useState(3);
 

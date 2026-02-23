@@ -19,7 +19,6 @@ export default function PageLayout({ lang }: { lang: Locale }) {
       try {
         const sanityData: PastEvents[] = await client.fetch(query);
         setData(sanityData);
-        console.log(data);
       } catch (error) {
         console.error('Error fetching past events:', error);
       } finally {
@@ -28,7 +27,7 @@ export default function PageLayout({ lang }: { lang: Locale }) {
     };
 
     fetchGallery();
-  });
+  }, []);
   return (
     <div>
       {isLoading && (

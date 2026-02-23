@@ -4,11 +4,12 @@ import Image from 'next/image'
 import { client } from '@/sanity/lib/client'
 import { News } from '@/typings'
 import { groq } from 'next-sanity'
-import { useEffect, useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import { PortableText } from '@portabletext/react'
 import { urlForImage } from '@/sanity/lib/image'
 
-export default function Page({ params: { lang, id } }: { params: { lang: Locale, id: String } }) {
+export default function Page({ params }: { params: Promise<{ lang: Locale; id: string }> }) {
+  const { lang, id } = use(params)
   const query = groq`*[_type == "news" && slug.current == "${id}"][0]`
   const [news, setNews] = useState<News>()
   const [loading, setLoading] = useState(true)
@@ -25,7 +26,7 @@ export default function Page({ params: { lang, id } }: { params: { lang: Locale,
       }
     }
     fetchData()
-  })
+  }, [id, lang])
 
   if (loading) {
     return <div>Loading...</div>
