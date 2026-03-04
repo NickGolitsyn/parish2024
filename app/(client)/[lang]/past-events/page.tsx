@@ -37,7 +37,7 @@ export default async function page({
           {page.pastevents.desc}
         </p>
       )}
-      <PELayout lang={lang} />
+      <PELayout lang={lang} words={page.news} />
     </main>
   )
 }

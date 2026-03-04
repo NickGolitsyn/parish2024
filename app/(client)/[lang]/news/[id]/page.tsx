@@ -32,18 +32,24 @@ export default function Page({ params }: { params: Promise<{ lang: Locale; id: s
     return <div>Loading...</div>
   }
 
+  const imgRef =
+    news?.imagedata?.image?.[lang]?.asset?._ref ??
+    news?.imagedata?.image?.en?.asset?._ref;
+
   return (
     <main className="pt-36 mb-20 px-5 max-w-screen-md mx-auto">
-      <Image 
-        src={urlForImage(news?.imagedata.image[lang].asset._ref)} 
-        width={500}
-        height={500}
-        alt={'News image'}
-        className='rounded-sm h-80 w-auto mx-auto mb-5'
-      />
-      <h1 className='text-2xl font-bold mb-2'>{news?.title[lang]}</h1>
+      {imgRef && (
+        <Image
+          src={urlForImage(imgRef)}
+          width={500}
+          height={500}
+          alt="News"
+          className="rounded-sm h-80 w-auto mx-auto mb-5"
+        />
+      )}
+      <h1 className="text-2xl font-bold mb-2">{news?.title?.[lang] ?? news?.title?.en}</h1>
       <div className="prose lg:prose-xl">
-        <PortableText value={news?.content[lang]} />
+        <PortableText value={news?.content?.[lang] ?? news?.content?.en ?? []} />
       </div>
     </main>
   )

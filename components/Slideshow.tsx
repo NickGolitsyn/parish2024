@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel'
 import Image from 'next/image';
-import { PastEvents } from '@/typings';
 import Autoplay from 'embla-carousel-autoplay';
 import { urlForImage } from '@/sanity/lib/image';
 

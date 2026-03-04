@@ -42,25 +42,14 @@ interface SanityGallery extends SanityBase {
   alt: { en: string; ro: string };
 }
 
-interface PastEvents extends SanityBase {
-  _type: "pastevents";
-  title: { en: string; ro: string };
-  slideshow: [];
-  screening: { 
-    news: {
-      _weak: boolean
-      _ref: string
-    }
-  }
-}
-
 interface News extends SanityBase {
   _type: "news";
   title: { en: string; ro: string };
-  description: { en: block; ro: block };
+  slug?: { current: string };
   content: { en: block; ro: block };
   imagedata: { image: Image; alt: { en: string; ro: string }; };
-  button: Boolean;
+  archived?: boolean;
+  orderRank?: string;
 }
 
 interface Donate extends SanityBase {

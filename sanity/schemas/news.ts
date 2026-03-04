@@ -1,11 +1,13 @@
-import { title } from 'process';
 import { defineType, defineField } from 'sanity';
+import { orderRankField, orderRankOrdering } from '@sanity/orderable-document-list';
 
 export default defineType({
   name: 'news',
   title: 'News',
   type: 'document',
+  orderings: [orderRankOrdering],
   fields: [
+    orderRankField({ type: 'news', newItemPosition: 'before' }),
     defineField({
       name: 'title',
       title: 'News Title',
@@ -34,44 +36,25 @@ export default defineType({
       }
     }),
     defineField({
-      name: 'description',
-      title: 'Description',
+      name: 'content',
+      title: 'Content',
       validation: (Rule) => Rule.required(),
-      type: 'object', 
+      type: 'object',
+      description: 'Full article. Cards show the first ~220 characters; "Read more" links to the full page.',
       fields: [
         {
           title: 'English',
           name: 'en',
-          type: 'array', 
-          of: [{type: 'block'}]
+          type: 'array',
+          of: [{ type: 'block' }],
         },
         {
           title: 'Romanian',
           name: 'ro',
-          type: 'array', 
-          of: [{type: 'block'}]
-        }
-      ]
-    }),
-    defineField({
-      name: 'content',
-      title: 'Content',
-      validation: (Rule) => Rule.required(),
-      type: 'object', 
-      fields: [
-        {
-          title: 'English', 
-          name: 'en',
-          type: 'array', 
-          of: [{type: 'block'}]
+          type: 'array',
+          of: [{ type: 'block' }],
         },
-        {
-          title: 'Romanian', 
-          name: 'ro',
-          type: 'array', 
-          of: [{type: 'block'}]
-        }
-      ]
+      ],
     }),
     defineField({
       name: "imagedata",
@@ -116,27 +99,23 @@ export default defineType({
       ]
     }),
     defineField({
-      name: 'button',
-      title: 'Read button',
+      name: 'archived',
+      title: 'Move to archive (Past events page)',
       type: 'boolean',
       initialValue: false,
       validation: (Rule) => Rule.required(),
+      description: 'When on, this post is removed from the main News feed and appears only on the Past events page.',
     }),
-    defineField({
-      name: 'hide',
-      title: 'Hide button',
-      type: 'boolean',
-      initialValue: false,
-      validation: (Rule) => Rule.required(),
-    })
   ],
   preview: {
     select: {
       title: 'title.en',
+      archived: 'archived',
     },
-    prepare({ title }) {
+    prepare({ title, archived }) {
       return {
-        title: title,
+        title: title ?? 'Untitled',
+        subtitle: archived ? 'Archived' : 'Active',
       };
     },
   },
