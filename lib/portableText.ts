@@ -10,7 +10,7 @@ export function getBlockContentPlainText(blocks: unknown): string {
       }
       return '';
     })
-    .join(' ')
-    .replace(/\s+/g, ' ')
+    // Keep paragraph breaks so card snippets can render line breaks.
+    .join('\n')
     .trim();
 }

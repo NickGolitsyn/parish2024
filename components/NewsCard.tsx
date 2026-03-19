@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import { Button } from './ui/button';
 import { urlForImage } from '@/sanity/lib/image';
 import { getBlockContentPlainText } from '@/lib/portableText';
@@ -40,21 +39,12 @@ export function NewsCard({ item, lang, words }: NewsCardProps) {
   const roRef = item?.imagedata?.image?.[lang]?.asset?._ref;
   const enRef = item?.imagedata?.image?.en?.asset?._ref;
   const imgRef = roRef ?? enRef;
-  const titleText = (item?.title?.[lang] ?? item?.title?.en ?? '').replace(/\\n/g, ' ');
+  const titleText = (item?.title?.[lang] ?? item?.title?.en ?? '').replace(/\\n/g, '\n');
 
   return (
     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rounded-sm border py-3 px-5">
       <div className="text-center sm:hidden">
-        <h3 className="font-semibold text-xl text-center">
-          {(item?.title?.[lang] ?? item?.title?.en ?? '')
-            .split('\\n')
-            .map((line: string, index: number) => (
-              <React.Fragment key={index}>
-                {line}
-                <br />
-              </React.Fragment>
-            ))}
-        </h3>
+        <h3 className="font-semibold text-xl text-center whitespace-pre-line">{titleText}</h3>
         <time className="text-sm">{formatDate(item?._createdAt ?? '', lang)}</time>
       </div>
       {imgRef ? (
@@ -68,7 +58,7 @@ export function NewsCard({ item, lang, words }: NewsCardProps) {
       ) : null}
       <div className="flex flex-col gap-2 w-full">
         <div className="hidden sm:block">
-          <h3 className="font-semibold text-xl">{titleText}</h3>
+          <h3 className="font-semibold text-xl whitespace-pre-line">{titleText}</h3>
           <time className="text-sm">{formatDate(item?._createdAt ?? '', lang)}</time>
         </div>
         <div className="text-center sm:text-left">
