@@ -17,19 +17,19 @@ export function getBlockContentPlainText(blocks: unknown): string {
 
 type PortableTextSpan = {
   _key?: string;
-  _type?: string;
+  _type: string;
   text?: string;
   marks?: string[];
 };
 
 type PortableTextMarkDef = {
-  _key?: string;
+  _key: string;
   [key: string]: unknown;
 };
 
 type PortableTextBlock = {
   _key?: string;
-  _type?: string;
+  _type: string;
   children?: PortableTextSpan[];
   markDefs?: PortableTextMarkDef[];
   [key: string]: unknown;
@@ -83,6 +83,7 @@ export function getTruncatedBlockContent(blocks: unknown, maxChars: number): Por
       marks?.forEach((mark) => referencedMarks.add(mark));
       keptChildren.push({
         ...child,
+        _type: typeof child?._type === 'string' ? child._type : 'span',
         text: keptText,
         ...(marks ? { marks } : {}),
       });
@@ -98,6 +99,7 @@ export function getTruncatedBlockContent(blocks: unknown, maxChars: number): Por
 
     truncatedBlocks.push({
       ...block,
+      _type: typeof block._type === 'string' ? block._type : 'block',
       children: keptChildren,
       ...(keptMarkDefs ? { markDefs: keptMarkDefs } : {}),
     });
