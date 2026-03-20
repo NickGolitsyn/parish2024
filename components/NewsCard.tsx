@@ -2,13 +2,24 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { PortableText, type PortableTextComponents } from '@portabletext/react';
 import { Button } from './ui/button';
 import { urlForImage } from '@/sanity/lib/image';
-import { getBlockContentPlainText } from '@/lib/portableText';
+import { getBlockContentPlainText, getTruncatedBlockContent } from '@/lib/portableText';
 import type { News } from '@/typings';
 import type { Locale } from '@/i18n.config';
 
 const READ_MORE_CHAR_THRESHOLD = 220;
+
+const newsCardPortableTextComponents: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => <p className="whitespace-pre-line m-0">{children}</p>,
+  },
+  marks: {
+    strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+  },
+  hardBreak: () => <br />,
+};
 
 function formatDate(dateString: string, lang: Locale) {
   const date = new Date(dateString);
@@ -30,10 +41,10 @@ export function NewsCard({ item, lang, words }: NewsCardProps) {
     : [];
   const plainText = getBlockContentPlainText(contentBlocks);
   const showReadMore = plainText.length > READ_MORE_CHAR_THRESHOLD;
-  const snippet =
-    plainText.length > READ_MORE_CHAR_THRESHOLD
-      ? plainText.slice(0, READ_MORE_CHAR_THRESHOLD).trim() + '...'
-      : plainText;
+  const plainSnippet = showReadMore
+    ? plainText.slice(0, READ_MORE_CHAR_THRESHOLD).trim() + '...'
+    : plainText;
+  const snippetBlocks = getTruncatedBlockContent(contentBlocks, READ_MORE_CHAR_THRESHOLD);
   const readLabel = words?.read ?? 'Read';
 
   const roRef = item?.imagedata?.image?.[lang]?.asset?._ref;
@@ -62,7 +73,11 @@ export function NewsCard({ item, lang, words }: NewsCardProps) {
           <time className="text-sm">{formatDate(item?._createdAt ?? '', lang)}</time>
         </div>
         <div className="text-center sm:text-left">
-          <p className="whitespace-pre-line">{snippet}</p>
+          {snippetBlocks.length > 0 ? (
+            <PortableText value={snippetBlocks} components={newsCardPortableTextComponents} />
+          ) : (
+            <p className="whitespace-pre-line">{plainSnippet}</p>
+          )}
         </div>
         {showReadMore && item?.slug?.current && (
           <Button asChild className="w-min mx-auto sm:mx-0">
