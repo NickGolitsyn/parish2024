@@ -16,7 +16,8 @@ const newsCardPortableTextComponents: PortableTextComponents = {
     normal: ({ children }) => <p className="whitespace-pre-line m-0">{children}</p>,
   },
   marks: {
-    strong: ({ children }) => <strong className="font-semibold">{children}</strong>,
+    strong: ({ children }) => <strong className="font-bold">{children}</strong>,
+    bold: ({ children }) => <strong className="font-bold">{children}</strong>,
   },
   hardBreak: () => <br />,
 };
