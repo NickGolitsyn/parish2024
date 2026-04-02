@@ -70,7 +70,7 @@ export function NewsCard({ item, lang, words }: NewsCardProps) {
       <div className="flex flex-col gap-2 w-full">
         <div className="hidden sm:block">
           <h3 className="font-semibold text-xl whitespace-pre-line">{titleText}</h3>
-          <time className="text-sm">{formatDate(item?._createdAt ?? '', lang)}</time>
+          {/* <time className="text-sm">{formatDate(item?._createdAt ?? '', lang)}</time> */}
         </div>
         <div className="text-center sm:text-left">
           {snippetBlocks.length > 0 ? (
