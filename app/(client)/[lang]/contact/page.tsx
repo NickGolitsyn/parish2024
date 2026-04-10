@@ -2,17 +2,20 @@ import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { buildLocaleAlternates } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: "Contact",
-  alternates: {
-    canonical: 'https://www.parohianorwich.org/en/about',
-    languages: {
-      'en': 'https://www.parohianorwich.org/en/about',
-      'ro': 'https://www.parohianorwich.org/ro/about',
-    },
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ lang: Locale }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const title = {
+    en: 'Contact',
+    ro: 'Contact',
+  };
+
+  return {
+    title: lang === 'ro' ? title.ro : title.en,
+    alternates: buildLocaleAlternates(lang === 'ro' ? 'ro' : 'en', '/contact'),
+  };
+}
 
 export default async function page({
   params

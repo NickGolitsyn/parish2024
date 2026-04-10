@@ -8,6 +8,7 @@ import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
 import { VideoSection } from "@/components/videoSection";
+import { buildLocaleAlternates } from "@/lib/seo";
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = await params;
@@ -18,13 +19,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   return {
     title: lang === "ro" ? title.ro : title.en,
-    alternates: {
-      canonical: "https://www.parohianorwich.org/en",
-      languages: {
-        en: "https://www.parohianorwich.org/en",
-        ro: "https://www.parohianorwich.org/ro",
-      },
-    },
+    alternates: buildLocaleAlternates(lang === "ro" ? "ro" : "en", ""),
   };
 }
 

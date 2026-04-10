@@ -8,6 +8,7 @@ import { client } from '@/sanity/lib/client';
 import { Services } from '@/typings';
 import { groq } from 'next-sanity';
 import { Metadata } from 'next';
+import { buildLocaleAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = await params;
@@ -18,13 +19,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   return {
     title: lang === 'ro' ? title.ro : title.en,
-    alternates: {
-      canonical: 'https://www.parohianorwich.org/en/services',
-      languages: {
-        'en': 'https://www.parohianorwich.org/en/services',
-        'ro': 'https://www.parohianorwich.org/ro/services',
-      },
-    },
+    alternates: buildLocaleAlternates(lang === 'ro' ? 'ro' : 'en', '/services'),
   };
 }
 

@@ -32,12 +32,17 @@ export function middleware(request: NextRequest) {
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request)
-    return NextResponse.redirect(
+    const response = NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
         request.url
-      )
+      ),
+      307
     )
+
+    // Tell crawlers and caches the redirect varies by language preference.
+    response.headers.set('Vary', 'Accept-Language')
+    return response
   }
 }
 

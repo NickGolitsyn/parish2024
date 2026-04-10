@@ -6,6 +6,7 @@ import photo from "@/public/donateImage.jpeg"
 import Image from 'next/image';
 import Link from 'next/link'
 import React from 'react';
+import { buildLocaleAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = await params;
@@ -16,13 +17,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   return {
     title: lang === 'ro' ? title.ro : title.en,
-    alternates: {
-      canonical: 'https://www.parohianorwich.org/en/donate',
-      languages: {
-        'en': 'https://www.parohianorwich.org/en/donate',
-        'ro': 'https://www.parohianorwich.org/ro/donate',
-      },
-    },
+    alternates: buildLocaleAlternates(lang === 'ro' ? 'ro' : 'en', '/donate'),
   };
 }
 

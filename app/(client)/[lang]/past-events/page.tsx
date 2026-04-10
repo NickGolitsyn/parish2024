@@ -2,6 +2,7 @@ import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
 import { Metadata } from 'next';
 import PELayout from './(components)/PELayout';
+import { buildLocaleAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = await params;
@@ -12,13 +13,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   return {
     title: lang === 'ro' ? title.ro : title.en,
-    alternates: {
-      canonical: 'https://www.parohianorwich.org/en/past-events',
-      languages: {
-        'en': 'https://www.parohianorwich.org/en/past-events',
-        'ro': 'https://www.parohianorwich.org/ro/past-events',
-      },
-    },
+    alternates: buildLocaleAlternates(lang === 'ro' ? 'ro' : 'en', '/past-events'),
   };
 }
 

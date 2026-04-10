@@ -6,6 +6,7 @@ import { groq } from 'next-sanity';
 import { PortableText } from '@portabletext/react';
 import { portableTextComponents } from '@/components/portableTextComponents';
 import { SundaySchool } from '@/typings';
+import { buildLocaleAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = await params;
@@ -16,13 +17,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   return {
     title: lang === 'ro' ? title.ro : title.en,
-    alternates: {
-      canonical: 'https://www.parohianorwich.org/en/sunday-school',
-      languages: {
-        'en': 'https://www.parohianorwich.org/en/sunday-school',
-        'ro': 'https://www.parohianorwich.org/ro/sunday-school',
-      },
-    },
+    alternates: buildLocaleAlternates(lang === 'ro' ? 'ro' : 'en', '/sunday-school'),
   };
 }
 

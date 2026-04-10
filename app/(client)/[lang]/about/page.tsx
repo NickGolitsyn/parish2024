@@ -8,6 +8,7 @@ import Link from 'next/link';
 import logo from '@/public/logo.jpg';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Parish from './(components)/parish';
+import { buildLocaleAlternates } from '@/lib/seo';
 
 export async function generateMetadata({ params }: any): Promise<Metadata> {
   const { lang } = await params;
@@ -18,13 +19,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
 
   return {
     title: lang === 'ro' ? title.ro : title.en,
-    alternates: {
-      canonical: 'https://www.parohianorwich.org/en/about',
-      languages: {
-        'en': 'https://www.parohianorwich.org/en/about',
-        'ro': 'https://www.parohianorwich.org/ro/about',
-      },
-    },
+    alternates: buildLocaleAlternates(lang === 'ro' ? 'ro' : 'en', '/about'),
   };
 }
 

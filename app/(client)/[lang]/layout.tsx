@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Locale, i18n } from "@/i18n.config";
 import { Analytics } from '@vercel/analytics/react';
+import { buildLocaleAlternates } from "@/lib/seo";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 
@@ -37,6 +38,7 @@ export async function generateMetadata({ params }: any): Promise<Metadata> {
     title: lang === 'ro' ? title.ro : title.en,
     description: lang === 'ro' ? description.ro : description.en,
     keywords,
+    alternates: buildLocaleAlternates(lang === 'ro' ? 'ro' : 'en', ''),
   };
 }
 
