@@ -21,14 +21,6 @@ const newsCardPortableTextComponents: PortableTextComponents = {
   hardBreak: () => <br />,
 };
 
-function formatDate(dateString: string, lang: Locale) {
-  const date = new Date(dateString);
-  return new Intl.DateTimeFormat(lang === 'ro' ? 'ro' : 'en-UK', {
-    day: 'numeric',
-    month: 'long',
-  }).format(date);
-}
-
 type NewsCardProps = {
   item: News;
   lang: Locale;
@@ -56,7 +48,6 @@ export function NewsCard({ item, lang, words }: NewsCardProps) {
     <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 rounded-sm border py-3 px-5">
       <div className="text-center sm:hidden">
         <h3 className="font-semibold text-xl text-center whitespace-pre-line">{titleText}</h3>
-        <time className="text-sm">{formatDate(item?._createdAt ?? '', lang)}</time>
       </div>
       {imgRef ? (
         <Image
@@ -70,7 +61,6 @@ export function NewsCard({ item, lang, words }: NewsCardProps) {
       <div className="flex flex-col gap-2 w-full">
         <div className="hidden sm:block">
           <h3 className="font-semibold text-xl whitespace-pre-line">{titleText}</h3>
-          {/* <time className="text-sm">{formatDate(item?._createdAt ?? '', lang)}</time> */}
         </div>
         <div className="text-center sm:text-left">
           {snippetBlocks.length > 0 ? (
